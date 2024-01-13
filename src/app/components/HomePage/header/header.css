@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(154, 153, 153, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 100;
+}
+
+.header-icon {
+  width: 10%;
+  margin-right: 100px;
+}
+.header-icon img {
+  width: 100px;
+  height: 40px;
+  aspect-ratio: 2.5;
+  object-fit: contain;
+  mix-blend-mode: color-burn;
+}
+.header-menu {
+  width: 70%;
+}
+.header-menu ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  font-size: 2vh;
+}
+
+.header-menu ul li {
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.header-menu ul li:hover {
+  background-color: rgb(244, 243, 243);
+  border-radius: 25px;
+}
+
+.menu {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logIn {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 50px;
+  margin-right: 40px;
+  font-size: 2vh;
+}
+
+.logIn:hover {
+  background-color: white;
+}
+
+.getStart {
+  background-color: #fd5444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 15px 0 15px 15px;
+  text-decoration: none;
+  font-size: 2vh;
+}
+.getStart:hover {
+  box-shadow: 2px 2px 3px 2px rgb(255, 255, 255);
+}
+
+@media (max-width: 1113px) {
+  .header-logGet {
+    display: flex;
+    flex-direction: column;
+  }
+  .logIn {
+    font-size: 15px;
+  }
+  .getStart {
+    font-size: 15px;
+    margin-top: 5px;
+  }
+  .header-menu ul {
+    margin-top: 25px;
+    padding: 0;
+  }
+}
+
+.header-menu1 {
+  width: 50%;
+  display: none;
+}
+.header-menu1 ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 3.5vw;
+  padding: 0;
+}
+
+.header-menu1 ul li {
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.header-menu1 ul li:hover {
+  background-color: rgb(244, 243, 243);
+  border-radius: 25px;
+}
+@media (max-width: 560px) {
+  .header-menu {
+    display: none;
+  }
+  .header-menu1 {
+    margin-top: 20px;
+    display: block;
+  }
+  .logIn {
+    font-size: 3.5vw;
+  }
+  .getStart {
+    font-size: 3.5vw;
+  }
+}
