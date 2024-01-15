@@ -4,7 +4,7 @@ import Header from "../components/HomePage/header/Header";
 import styles from "./login.module.css"
 
 
-export default function login() {
+export default function Login() {
   return (
     <div>
       <Header />
@@ -18,7 +18,7 @@ export default function login() {
               <label htmlFor="psw"><b>Password</b></label> <br />
               <input className={`${styles.pswInput}`} type="password" placeholder="Enter Password" name="psw" required />
                   
-              <button className={`${styles.btn}`} type="submit">Login</button>
+              <button className={`${styles.btn}`} type="submit" onClick={checkLogin()}>Login</button>
               <label htmlFor='remember'>
                 <input id='remember' type="checkbox" /*checked="checked"*/ name="remember" /> Remember me
               </label>
@@ -54,7 +54,7 @@ export default function login() {
 
               <div className={`${styles.clearfix}`}>
                 <button type="button" className={`${styles.cancelbtn} ${styles.halfWidth}`}>Cancel</button>
-                <button type="submit" className={`${styles.btn} ${styles.halfWidth}`}>Sign Up</button>
+                <button type="submit" className={`${styles.btn} ${styles.halfWidth}`} onClick={signUp()}>Sign Up</button>
               </div>
             </div>
           </form>
