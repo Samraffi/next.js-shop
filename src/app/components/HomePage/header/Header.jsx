@@ -29,7 +29,7 @@ function Header() {
             </ul>
           </div>
           <div className="header-logGet">
-            <a href="#" className="logIn">
+            <a href="/login" className="logIn">
               Log In
             </a>
             <a href="#" className="getStart">
