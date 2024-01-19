@@ -32,7 +32,7 @@ const signUp = () => {
                 <button type="submit" className={`${styles.btn} ${styles.halfWidth}`} /*onClick={signUp()}*/>Sign Up</button>
               </div>
             </div>
-            <button type="button" className={`${styles.cancelbtn} ${styles.btn}`}> <a href="login">sign in</a> </button>
+            <button type="button" className={`${styles.change} ${styles.btn}`}> <a className={`${styles.sgn}`} href="login">sign in</a> </button>
 
           </form>
 

@@ -50,7 +50,18 @@ span.psw {
   float: right;
   padding-top: 16px;
 }
-
+.change {
+  width: 95%;
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+  background-color: rgba(154, 153, 153, 0.2);
+  border-radius: 20px;
+}
+.sgn {
+  text-decoration: none;
+  width: 100%;
+}
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {

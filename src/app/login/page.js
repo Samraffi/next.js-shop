@@ -21,7 +21,7 @@ export default function Login() {
               <input id='remember' type="checkbox" checked="checked" name="remember" /> Remember me
             </label>  */}
           </div>
-          <button type="button" className={`${styles.cancelbtn} ${styles.btn}`}> <a href="sign-up">sign up</a> </button>
+          <button type="button" className={`${styles.change} ${styles.btn}`}> <a className={`${styles.sgn}`} href="sign-up">sign up</a> </button>
 
           {/* <div className={`${styles.container}`} /*style="background-color:#f1f1f1">
             <button type="button" className={`${styles.cancelbtn} ${styles.btn}`}>Cancel</button>
