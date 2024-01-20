@@ -7,9 +7,9 @@ import Link from "next/link";
 import { allBasketItems } from "../../store/basketItems/allReducer";
 import { selectBasketItems } from "../../store/basketItems/selectReducer";
 import data from "../../../data.json";
-import "./main.css";
+import "./Home.css";
 
-function Main () {
+function Home () {
   const dispatch = useDispatch();
   const router = useRouter();
   const allBasketElems = useSelector(
@@ -49,10 +49,10 @@ function Main () {
         <div className="content">
           {allBasketElems.map(({ title, images, id, price }) => (
             <div className="box" key={id}>
-              <button>
+              <div className="image-box">
                 <img src={images[0]} alt={images[0]} className="image1" />
                 <img src={images[2]} alt={images[2]} className="image2" />
-              </button>
+              </div>
               <div className="description">
                 <h2>{title}</h2>
                 <p>${price}</p>
@@ -75,4 +75,4 @@ function Main () {
   );
 }
 
-export default Main;
+export default Home;

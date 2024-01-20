@@ -40,11 +40,11 @@
   display: none;
 }
 
-a:hover .image2 {
+.image-box:hover .image2 {
   display: block;
 }
 
-a:hover .image1 {
+.image-box:hover .image1 {
   display: none;
 }
 

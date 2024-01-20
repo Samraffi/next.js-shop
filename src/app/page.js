@@ -1,11 +1,11 @@
-import Header from "../components/HomePage/Header";
-import Main from "../components/HomePage/Main";
+import Header from "../layouts/Header";
+import Home from "../components/HomePage/Home";
 
-export default function Home () {
+export default function HomePage () {
   return (
     <>
       <Header />
-      <Main />
+      <Home />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import Basket from "../../components/BasketPage/Basket";
 
-export default function Home () {
+export default function BasketPage () {
   return (
     <Basket />
   );

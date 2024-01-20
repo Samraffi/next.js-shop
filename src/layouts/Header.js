@@ -30,7 +30,7 @@ function Header () {
             </ul>
           </div>
           <div className="header-log-get">
-            <Link href="/link">Log In</Link>
+            <Link href="/login">Log In</Link>
           </div>
         </div>
       </div>
