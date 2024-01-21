@@ -1,4 +1,4 @@
-import Basket from "../../components/BasketPage/Basket";
+import Basket from "@/components/BasketPage/Basket";
 
 export default function BasketPage () {
   return (
