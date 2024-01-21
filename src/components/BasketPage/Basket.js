@@ -6,7 +6,6 @@ import "./Basket.css";
 function Basket () {
   const selectBasketItems = useSelector((state) => state.selectBasketItems.selectBasketItems);
 
-  console.log(selectBasketItems);
   const count = selectBasketItems.reduce(
     (acc, basketItem) => acc + (basketItem.quantity ? basketItem.quantity : 1),
     0

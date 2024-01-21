@@ -1,46 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { allBasketItems } from "../../store/basketItems/allReducer";
-import { selectBasketItems } from "../../store/basketItems/selectReducer";
-import data from "../../../data.json";
+import { useDispatch } from "react-redux";
+import { selectBasketItems } from "@/store/basketItems/selectReducer";
+import getUpdatedBasketItems from "@/helpers/getUpdatedBasketItems";
+import useBasketItems from "@/hooks/useBasketItems";
 import "./Home.css";
 
 function Home () {
   const dispatch = useDispatch();
-  const router = useRouter();
-  const allBasketElems = useSelector(
-    (state) => state.allBasketItems.allBasketItems
-  );
-  const selectBasketElems = useSelector(
-    (state) => state.selectBasketItems.selectBasketItems
-  );
-
-  useEffect(() => {
-    dispatch(allBasketItems(data));
-  }, []);
+  const { allBasketElems, selectBasketElems} = useBasketItems();
 
   const onClickAdd = (product) => {
-    const existingBasketItem = selectBasketElems.find(
-      ({ id }) => id === product.id
-    );
-
-    if (existingBasketItem) {
-      const data = selectBasketElems.map((BasketItem) =>
-        BasketItem.id === product.id
-          ? { ...BasketItem, quantity: BasketItem.quantity + 1 }
-          : BasketItem
-      );
-      dispatch(selectBasketItems(data));
-    } else {
-      const data = [...selectBasketElems, { ...product, quantity: 1 }];
-      dispatch(selectBasketItems(data));
-    }
-
-    router.push("/basket");
+    const updatedBasketItems = getUpdatedBasketItems(selectBasketElems, product);
+    dispatch(selectBasketItems(updatedBasketItems));
   };
 
   return (
