@@ -1,0 +1,14 @@
+{data.map((item, index) => {
+              return (
+                <div className="order-menu-items" key={index}>
+                  <div className="order-menu-item">
+                    <img src={item.images[0]} alt="Image" />
+                    <div className="order-menu-item-description">
+                      <h2>{item.title}</h2>
+                      <p>${item.price}</p>
+                      <button>Buy</button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}

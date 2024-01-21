@@ -5,6 +5,7 @@ import Basket from "./basket/Basket";
 import data from "../../../../../data.json";
 
 import "./main.css";
+import Link from "next/link";
 
 function Main() {
   const [basketItems, setBasketItems] = useState([]);
@@ -15,7 +16,7 @@ function Main() {
         ({ id }) => id === product.id
       );
       if (existingBasketItem) {
-        return currentArrBasketItems.map((BasketItem) => 
+        return currentArrBasketItems.map((BasketItem) =>
           BasketItem.id === product.id
             ? { ...BasketItem, quantity: BasketItem.quantity + 1 }
             : BasketItem
@@ -28,6 +29,9 @@ function Main() {
 
   return (
     <div className="main">
+      <div className="goTo">
+        <Link href="/about">GoTo</Link>
+      </div>
       <Basket
         basketItems={basketItems}
         cartOpened={cartOpened}

@@ -65,3 +65,7 @@ a:hover .image1 {
 button:hover {
   background-color: rgba(115, 115, 115, 0.3);
 }
+
+.goTo {
+  margin-top: 60px;
+}

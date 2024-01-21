@@ -1,7 +1,6 @@
 import "./basket.css";
 
 function Basket({ basketItems, cartOpened, setCartOpened }) {
-  console.log("basketItems", basketItems);
   const count = basketItems.reduce(
     (acc, basketItem) => acc + basketItem.quantity,
     0

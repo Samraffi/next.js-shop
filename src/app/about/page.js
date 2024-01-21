@@ -1,3 +1,4 @@
+import Order from "../components/HomePage/order/Order";
 export default function About() {
-  return <div>About2</div>
+  return <Order />;
 }
