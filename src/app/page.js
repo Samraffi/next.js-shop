@@ -1,5 +1,11 @@
-import App from "./components/HomePage/App";
+import Header from "../layouts/Header";
+import Home from "../components/HomePage/Home";
 
-export default function Home() {
-  return <App />;
+export default function HomePage () {
+  return (
+    <>
+      <Header />
+      <Home />
+    </>
+  );
 }

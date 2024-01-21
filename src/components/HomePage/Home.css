@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .container {
   display: flex;
   align-items: center;
@@ -16,13 +17,15 @@
   width: 70%;
   margin-top: 80px;
 }
+
 .box {
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid #000;
   border-radius: 20px;
   opacity: 0.8;
   transition: 0.3s;
 }
+
 .box:hover {
   opacity: 1;
   transition: 0.3s;
@@ -32,19 +35,21 @@
   width: 100%;
   border-radius: 20px 20px 0 0;
 }
+
 .image2 {
   display: none;
 }
 
-a:hover .image2 {
+.image-box:hover .image2 {
   display: block;
 }
 
-a:hover .image1 {
+.image-box:hover .image1 {
   display: none;
 }
+
 .box .description {
-  padding: 20px;
+  padding: 2rem;
 }
 
 .box p {
@@ -55,13 +60,21 @@ a:hover .image1 {
 
 .box button {
   width: 100%;
-  background-color: rgb(179, 178, 178);
+  background-color: #b3b2b2;
   font-size: 22px;
   border-radius: 25px;
-  padding: 10px 15px;
+  padding: 1rem 1.5rem;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: rgba(115, 115, 115, 0.3);
+  background-color: #7373734d;
+}
+
+.goTo {
+  margin-top: 60px;
+}
+
+.goTo {
+  margin-top: 60px;
 }
