@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import "./order.css";
+import "./Order.css";
 
 function Order() {
-  const selectBasketItems = useSelector((state) => state.selectBasketItems.selectBasketItems);
+  const selectBasketItems = useSelector(
+    (state) => state.selectBasketItems.selectBasketItems
+  );
 
   return (
     <div className="order">
