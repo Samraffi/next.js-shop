@@ -1,17 +1,18 @@
+import Link from "next/link";
 import "./header.css";
 
-function Header() {
+function Header () {
   return (
     <header>
       <div className="header-content">
         <div className="header-icon">
-          <img src="/image/shop4.png" alt="Picture of the author" />
+          <img src="/image/shop4.png" alt="Logo" />
         </div>
         <div className="menu">
           <div className="header-menu">
             <ul>
               <li>Home</li>
-              <li>Brends</li>
+              <li>Brands</li>
               <li>About Us</li>
               <li>Contacts</li>
             </ul>
@@ -20,7 +21,7 @@ function Header() {
             <ul>
               <div>
                 <li>Home</li>
-                <li>Brends</li>
+                <li>Brands</li>
               </div>
               <div>
                 <li>About Us</li>
@@ -28,13 +29,8 @@ function Header() {
               </div>
             </ul>
           </div>
-          <div className="header-logGet">
-            <a href="#" className="logIn">
-              Log In
-            </a>
-            <a href="#" className="getStart">
-              Get Started
-            </a>
+          <div className="header-log-get">
+            <Link href="/login">Log In</Link>
           </div>
         </div>
       </div>

@@ -5,9 +5,8 @@
   margin-top: 70px;
   position: absolute;
   z-index: 100;
-
-
 }
+
 .basket-img {
   width: 70px;
   height: 70px;
@@ -18,9 +17,10 @@
   z-index: 101;
   cursor: pointer;
 }
+
 .calc {
-  border: 1px solid black;
-  color: white;
+  border: 1px solid #000;
+  color: #fff;
   background-color: #fd5444;
   width: 25px;
   height: 25px;
@@ -40,8 +40,8 @@
 .basket-menu {
   width: 30%;
   position: fixed;
-  border: 2px solid black;
-  background-color: rgba(255, 255, 255);
+  border: 2px solid #000;
+  background-color: #fff;
   border-radius: 15px;
   z-index: 100;
   bottom: 0;
@@ -49,6 +49,7 @@
   overflow-y: scroll;
   display: none;
 }
+
 .basket-menu.opened{
   display: block;
 }
@@ -61,7 +62,7 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  border: 1px solid black;
+  border: 1px solid #000;
   margin: 5px;
   border-radius: 15px;
 }
@@ -71,10 +72,12 @@
   border-radius: 15px;
   margin: 5px;
 }
+
 .basket-menu-item-description h2{
   font-size:25px;
   margin-bottom: 5px;
 }
+
 .basket-menu-item-description p{
   font-size: 25px;
 }
@@ -82,9 +85,9 @@
 .basket-menu-item-description button{
   width: 100%;
   margin-top: 50px;
-  background-color: rgb(179, 178, 178);
+  background-color: #b3b2b2;
   font-size: 25px;
   border-radius: 25px;
-  padding: 10px 15px;
+  padding: 1rem 5rem;
   cursor: pointer;
 }
