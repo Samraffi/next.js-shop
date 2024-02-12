@@ -8,7 +8,7 @@ function Order() {
   const selectBasketItems = useSelector(
     (state) => state.selectBasketItems.selectBasketItems
   );
-
+    
   return (
     <div className="order">
       <div>
