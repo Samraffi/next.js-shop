@@ -11,10 +11,9 @@ function Header () {
         <div className="menu">
           <div className="header-menu">
             <ul>
-              <li>Home</li>
-              <li>Brands</li>
-              <li>About Us</li>
-              <li>Contacts</li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/basket">Basket</Link></li>
+              <li><Link href="/order">Order</Link></li>
             </ul>
           </div>
           <div className="header-menu1">
