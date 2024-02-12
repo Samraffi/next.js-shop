@@ -10,6 +10,8 @@
     "server": "json-server --watch ./server/data.json -p 3001"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@mui/material-nextjs": "^5.15.9",
     "@reduxjs/toolkit": "^2.0.1",
     "next": "^14.1.0",
     "react": "^18.2.0",
