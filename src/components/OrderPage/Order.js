@@ -29,9 +29,7 @@ function Order() {
                     <p>${item.price}</p>
                   </div>
                   <div className="order-product-item-quantity">
-                    <div className="quantity-add">-</div>
                     <div className="quantity-number">1</div>
-                    <div className="quantity-remove">+</div>
                   </div>
                 </div>
               );
