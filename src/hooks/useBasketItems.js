@@ -19,7 +19,6 @@ const useBasketItems = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         dispatch(allBasketItems(data));
       });
   }, []);
