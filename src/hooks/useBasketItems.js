@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allBasketItems } from "@/store/basketItems/allReducer";
-import data from "../../data.json";
 
 const useBasketItems = () => {
   const dispatch = useDispatch();
@@ -15,7 +14,14 @@ const useBasketItems = () => {
   );
 
   useEffect(() => {
-    dispatch(allBasketItems(data));
+    fetch('http://localhost:3001/posts')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        dispatch(allBasketItems(data));
+      });
   }, []);
 
   return { allBasketElems, selectBasketElems };
