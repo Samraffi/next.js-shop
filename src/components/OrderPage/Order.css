@@ -27,6 +27,7 @@
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 5px whitesmoke;
+  margin-bottom: 20px;
 }
 
 .order-product-item {
@@ -54,16 +55,22 @@
   flex-direction: column;
   font-size: 18px;
 }
-.order-product-item-description p {
-  font-size: 22px;
+.order-product-item-description h2 {
+  font-size: 20px;
 }
 
+.order-product-item-total {
+  font-size: 20px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .order-product-item-quantity {
   width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 
 .quantity-number {
@@ -114,6 +121,57 @@
 }
 .order-convention input {
   cursor: pointer;
+}
+
+.order-delivery {
+  width: 100%;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px whitesmoke;
+  margin-bottom: 20px;
+}
+
+.order-delivery h2 {
+  margin-bottom: 10px;
+}
+
+.order-delivery-address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order-paymentDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-payment {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.order-payment,
+.order-details {
+  width: 50%;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px whitesmoke;
+}
+
+.order-details h2 {
+  margin-bottom: 10px;
+}
+.order-payment h2 {
+  margin-bottom: 10px;
+}
+
+.order-details img {
+  width: 7%;
+  opacity: 0.5;
 }
 
 @media (max-width: 1300px) {
