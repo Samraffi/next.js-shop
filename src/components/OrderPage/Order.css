@@ -130,6 +130,7 @@
   border-radius: 20px;
   box-shadow: 5px 5px 5px 5px whitesmoke;
   margin-bottom: 20px;
+  border: 1px solid black;
 }
 
 .order-delivery h2 {
@@ -138,9 +139,29 @@
 
 .order-delivery-address {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   margin-bottom: 10px;
+  gap: 10px;
+}
+
+.order-delivery-address span {
+  margin: 0 6px;
+  text-overflow: ellipsis;
+}
+
+.order-payment-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.order-payment-options-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
 }
 
 .order-paymentDetails {
@@ -151,7 +172,6 @@
 
 .order-payment {
   margin-right: 10px;
-  font-size: 20px;
 }
 .order-payment,
 .order-details {
@@ -160,18 +180,29 @@
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 5px whitesmoke;
+  border: 1px solid black;
 }
 
-.order-details h2 {
-  margin-bottom: 10px;
-}
-.order-payment h2 {
-  margin-bottom: 10px;
+.order-paymentDetails-title h2 {
+  margin-bottom: 20px;
 }
 
 .order-details img {
-  width: 7%;
-  opacity: 0.5;
+  width: 6%;
+  opacity: 0.8;
+}
+
+.order-details-description {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-details-description span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0 6px;
 }
 
 @media (max-width: 1300px) {
