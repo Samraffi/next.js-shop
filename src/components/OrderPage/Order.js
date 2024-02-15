@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Modal from "./Modal";
 import { useSelector } from "react-redux";
 import "./Order.css";
 
@@ -92,7 +93,7 @@ function Order() {
             <span>0 $</span>
           </div>
           <div className="order-buy">
-            <button className="order-buy-button">Order</button>
+            <Modal className="order-buy-button"/>
           </div>
           <div className="order-convention">
             <span>
