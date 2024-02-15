@@ -9,6 +9,7 @@ import getUpdatedBasketItems from "@/helpers/getUpdatedBasketItems";
 import { useDispatch } from 'react-redux';
 import useBasketItems from '@/hooks/useBasketItems';
 import deleteBasketItem from "../../helpers/deleteBasketItem"
+import minusUptadeBasketItem from "../../helpers/minusUptadeBasketItem"
 
 
 const StyledBasket = styled(Container)(({ theme }) => ({
@@ -95,6 +96,11 @@ const deleteItem =(product) => {
   dispatch(selectBasketItems(updatedBasketItems));
 };
 
+const minusItem =(product) => {
+  const updatedBasketItems = minusUptadeBasketItem(selectBasketElems, product);
+  dispatch(selectBasketItems(updatedBasketItems));
+};
+
 
 
   return (
@@ -114,7 +120,7 @@ const deleteItem =(product) => {
                 <Typography>${item.price}</Typography>
               </Grid>
               <StyledQuantityContainer item xs={3} container>
-                <StyledQuantityButtons variant="outlined" color="primary">-</StyledQuantityButtons>
+                <StyledQuantityButtons variant="outlined" color="primary" onClick={() => {minusItem(item)}}>-</StyledQuantityButtons>
                 <Typography variant="body1" fontWeight="bold" fontSize="1.2rem" marginRight="8px">{item.quantity}</Typography>
                 <StyledQuantityButtons variant="outlined" color="primary"  onClick={() => {
                     onClickAdd(item);
