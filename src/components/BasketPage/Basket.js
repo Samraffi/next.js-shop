@@ -2,8 +2,14 @@
  import { Box, Button, Checkbox, Container, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { selectBasketItems } from "@/store/basketItems/selectReducer";
+import getUpdatedBasketItems from "@/helpers/getUpdatedBasketItems";
+import { useDispatch } from 'react-redux';
+import useBasketItems from '@/hooks/useBasketItems';
+import deleteBasketItem from "../../helpers/deleteBasketItem"
+
 
 const StyledBasket = styled(Container)(({ theme }) => ({
   padding: theme.spacing(3),
@@ -68,8 +74,28 @@ const StyledBasketBuyButton = styled(Button)(({ theme }) => ({
   marginTop: theme.spacing(2),
 }));
 
+
+
+
 function Basket() {
-  const selectBasketItems = useSelector((state) => state.selectBasketItems.selectBasketItems);
+
+  const selectBasketItemsAll = useSelector((state) => state.selectBasketItems.selectBasketItems);
+  
+  
+  const dispatch = useDispatch();
+  const { selectBasketElems} = useBasketItems();
+
+  const onClickAdd = (product) => {
+    const updatedBasketItems = getUpdatedBasketItems(selectBasketElems, product);
+    dispatch(selectBasketItems(updatedBasketItems));
+  };
+
+const deleteItem =(product) => {
+  const updatedBasketItems = deleteBasketItem(selectBasketElems, product);
+  dispatch(selectBasketItems(updatedBasketItems));
+};
+
+
 
   return (
     <StyledBasket>
@@ -78,7 +104,7 @@ function Basket() {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} md={8}>
-          {selectBasketItems.map((item, index) => (
+          {selectBasketItemsAll.map((item, index) => (
             <StyledBasketProductItem key={index} container spacing={2}>
               <Grid item xs={3}>
                 <img src={item.images[0]} alt="Image" width="100%" style={{ borderRadius: '8px' }} />
@@ -90,19 +116,21 @@ function Basket() {
               <StyledQuantityContainer item xs={3} container>
                 <StyledQuantityButtons variant="outlined" color="primary">-</StyledQuantityButtons>
                 <Typography variant="body1" fontWeight="bold" fontSize="1.2rem" marginRight="8px">{item.quantity}</Typography>
-                <StyledQuantityButtons variant="outlined" color="primary">+</StyledQuantityButtons>
-                <StyledDeleteIcon />
+                <StyledQuantityButtons variant="outlined" color="primary"  onClick={() => {
+                    onClickAdd(item);
+                  }}>+</StyledQuantityButtons>
+                <StyledDeleteIcon onClick={() => {deleteItem(item)}}/>
               </StyledQuantityContainer>
             </StyledBasketProductItem>
           ))}
         </Grid>
         <Grid item xs={12} md={4}>
           <Typography variant="h6" align="center" gutterBottom>
-            Product {selectBasketItems.reduce((acc, item) => acc + item.quantity, 0)} pieces
+            Product {selectBasketItemsAll.reduce((acc, item) => acc + item.quantity, 0)} pieces
           </Typography>
           <StyledBasketTotal>
             <Typography variant="h6">Total</Typography>
-            <Typography>0 $</Typography>
+            <Typography>{selectBasketItemsAll.reduce((acc, item) => acc + item.quantity * item.price, 0)}  $</Typography>
           </StyledBasketTotal>
           <StyledBasketBuyButton variant="contained" fullWidth>
             Buy Now
