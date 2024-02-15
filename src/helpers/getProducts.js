@@ -1,8 +1,7 @@
-
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
 
-import {firebaseConfig} from "../../services/connecionDb"
+import { firebaseConfig } from "../services/connecionDb";
 
 async function getProducts() {
     const app = initializeApp(firebaseConfig);
@@ -13,4 +12,4 @@ async function getProducts() {
     return products;
 }
 
-export default getProducts;
+export default getProducts

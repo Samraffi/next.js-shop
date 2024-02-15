@@ -1,17 +1,13 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import getProducts from './check'
+"use client";
 
-const page = () => {
-    const [products, setProducts] = useState([])
+import { useEffect, useState } from "react";
+import getProducts from "./check";
 
-    useEffect(() => {
-        getProducts().then(data => setProducts(data))
-      }, [])
-    console.log(products)
-  return (
-    <div>page</div>
-  )
-}
+const Page = () => {
+  const [products, setProducts] = useState([]);
 
-export default page
+  console.log(products);
+  return <div>page</div>;
+};
+
+export default Page;
