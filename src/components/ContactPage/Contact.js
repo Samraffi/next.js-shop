@@ -14,6 +14,7 @@ const ContactPage = () => {
     text: '',
   }};
 
+
   
   const validationSchema = Yup.object({
     name: Yup.string().required('Please, enter the name'),
@@ -27,5 +28,7 @@ const ContactPage = () => {
     validationSchema,
     onSubmit,
   });
+
+  return ()
 
 export default ContactPage;
