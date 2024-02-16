@@ -115,17 +115,17 @@ function Basket() {
         Basket
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={7}>
           {selectBasketItemsAll.map((item, index) => (
             <StyledBasketProductItem key={index} container spacing={2}>
               <Grid item xs={3}>
                 <img src={item.images[0]} alt="Image" width="100%" style={{ borderRadius: '8px' }} />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={5}>
                 <StyledProductName variant="h6">{item.title}</StyledProductName>
                 <Typography>${item.price}</Typography>
               </Grid>
-              <StyledQuantityContainer item xs={3} container>
+              <StyledQuantityContainer item xs={4} container>
                 <StyledQuantityButtons variant="outlined" color="primary" onClick={() => { minusItem(item) }}>-</StyledQuantityButtons>
                 <Typography variant="body1" fontWeight="bold" fontSize="1.2rem" marginRight="8px">{item.quantity}</Typography>
                 <StyledQuantityButtons variant="outlined" color="primary" onClick={() => { onClickAdd(item) }}>+</StyledQuantityButtons>
@@ -138,7 +138,8 @@ function Basket() {
             </StyledBasketProductItem>
           ))}
         </Grid>
-        <Grid item xs={12} md={4}>
+       
+        <Grid item xs={12} md={5}>
           <Typography variant="h6" align="center" gutterBottom>
             Product {selectBasketItemsAll.reduce((acc, item) => acc + item.quantity, 0)} pieces
           </Typography>
@@ -151,7 +152,7 @@ function Basket() {
           </StyledBasketBuyButton>
           <Box mt={2} textAlign="center">
             
-            <Typography> <Checkbox name="convention" /> I agree with the rules for using the trading platform and returning</Typography>
+            <Typography> <Checkbox name="convention" value ="checked"/> I agree with the rules for using the trading platform and returning</Typography>
           </Box>
         </Grid>
       </Grid>
