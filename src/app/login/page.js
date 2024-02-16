@@ -2,19 +2,18 @@
 
 import styles from "./login.module.css"
 
-
 export default function Login() {
   return (
     <div>
-      <form className={`${styles.signForm}`} action="" method="">
+      <form className={`${styles.signForm}`} onSubmit={() => "loginUser()"}>
         <div className={`${styles.container}`}>
           <label htmlFor="uname"><b>Username</b></label><br />
-          <input className={`${styles.txtInput}`} type="text" placeholder="Enter Username" name="uname" required /><br />
+          <input className={`${styles.txtInput}`} type="text" placeholder="Enter Username" name="email" required /><br />
 
           <label htmlFor="psw"><b>Password</b></label> <br />
           <input className={`${styles.pswInput}`} type="password" placeholder="Enter Password" name="psw" required />
               
-          <button className={`${styles.btn}`} type="submit" onClick={() => checkLogin()}>Login</button>
+          <button className={`${styles.btn}`} type="submit" /*onClick={() => checkLogin()}*/>Login</button>
           {/* <label htmlFor='remember'>
             <input id='remember' type="checkbox" checked="checked" name="remember" /> Remember me
           </label>  */}

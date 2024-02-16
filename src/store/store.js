@@ -9,7 +9,6 @@ import {
   PURGE,
   REGISTER
 } from "redux-persist";
-import counterReducer from "./counter/counterSlice";
 import allReducer from "./basketItems/allReducer";
 import selectReducer from "./basketItems/selectReducer";
 
@@ -23,7 +22,6 @@ export const makeStore = () => {
   const persistedReducer = persistReducer(
     persistConfig,
     combineReducers({
-      counter: counterReducer,
       allBasketItems: allReducer,
       selectBasketItems: selectReducer
     })
