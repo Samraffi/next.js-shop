@@ -10,20 +10,20 @@ async function getProducts() {
     const productsSnapshot = await get(ref(db, '/products'));
     let products = productsSnapshot.val()
 
-    let orderDetailSnapshot = await get(ref(db, "/orderDetails"))
-    let orderDetails = orderDetailSnapshot.val()
+    // let orderDetailSnapshot = await get(ref(db, "/orderDetails"))
+    // let orderDetails = orderDetailSnapshot.val()
 
-    let orderProducts = []
+    // let orderProducts = []
 
-    orderDetails.map((elem) => {
-      if (elem[order_id] === 1) {
-        products.map((product) => {
-          if(product.id === elem[product_id]) {
-            orderProducts.push()
-          }
-        })
-      }
-    })
+    // orderDetails.map((elem) => {
+    //   if (elem[order_id] === 1) {
+    //     products.map((product) => {
+    //       if(product.id === elem[product_id]) {
+    //         orderProducts.push()
+    //       }
+    //     })
+    //   }
+    // })
 
 
     return products
