@@ -9,6 +9,7 @@ function Order() {
   const selectBasketItems = useSelector(
     (state) => state.selectBasketItems.selectBasketItems
   );
+  const isEmpty = () => {};
 
   return (
     <div className="order">
@@ -57,19 +58,19 @@ function Order() {
               <div className="order-payment-options">
                 <label>
                   <div className="order-payment-options-item">
-                    <input type="radio" name="payment" />
+                    <input type="radio" name="payment" checked />
                     <span>Cash</span>
                   </div>
                 </label>
                 <label>
                   <div className="order-payment-options-item">
-                    <input type="radio" name="payment" />
+                    <input type="radio" name="payment" checked />
                     <img src="../image/cards.svg" alt="Image" />
                   </div>
                 </label>
                 <label>
                   <div className="order-payment-options-item">
-                    <input type="radio" name="payment" />
+                    <input type="radio" name="payment" checked />
                     <img src="../image/idram.svg" alt="Image" />
                   </div>
                 </label>
@@ -93,7 +94,7 @@ function Order() {
             <span>0 $</span>
           </div>
           <div className="order-buy">
-            <Modal className="order-buy-button"/>
+            <Modal className="order-buy-button" />
           </div>
           <div className="order-convention">
             <span>

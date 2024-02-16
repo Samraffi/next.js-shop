@@ -77,18 +77,7 @@ export default function AlertDialogSlide({ className }) {
           >
             Disagree
           </Button>
-          <Button
-            onClick={handelCloseAgree}
-            sx={{
-              backgroundColor: "#f5f5f5",
-              color: "black",
-              "&:hover": {
-                backgroundColor: "black",
-                color: "white",
-              },
-            }}
-            autoFocus
-          >
+          <Button onClick={handelCloseAgree} autoFocus>
             <AgreeModal />
           </Button>
         </DialogActions>
