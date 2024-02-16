@@ -29,6 +29,8 @@ const ContactPage = () => {
     onSubmit,
   });
 
-  return ()
+return(
+  <div></div>
+)
 
 export default ContactPage;
