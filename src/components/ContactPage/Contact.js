@@ -12,7 +12,7 @@ const ContactPage = () => {
     surname: '',
     email: '',
     text: '',
-  };
+  }};
 
   
   const validationSchema = Yup.object({
