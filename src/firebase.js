@@ -13,7 +13,8 @@ const firebaseConfig = {
   measurementId: "G-W0ZECDSRTC",
 };
 
-// Initialize Firebase
+let databaseUrl = "https://shoppingjs-6c2c1-default-rtdb.firebaseio.com/";
+
 export const app = initializeApp(firebaseConfig);
-export const database = getDatabase(app);
+export const database = getDatabase(app, databaseUrl);
 export const auth = getAuth(app);

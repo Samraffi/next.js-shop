@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import getProducts from "./check";
 
 const Page = () => {
   const [products, setProducts] = useState([]);
