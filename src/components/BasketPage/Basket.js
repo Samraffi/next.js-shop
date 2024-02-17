@@ -43,6 +43,7 @@ function Basket() {
   };
 
   const buyItems = () => {
+    console.log("selectBasketElems", selectBasketElems);
     dispatch(selectBasketItems([]));
 
     // selectBasketElems
