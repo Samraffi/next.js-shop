@@ -46,7 +46,7 @@ function Basket() {
     console.log("selectBasketElems", selectBasketElems);
     dispatch(selectBasketItems([]));
 
-    // selectBasketElems
+  
   };
 
   return (
