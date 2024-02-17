@@ -1,6 +1,6 @@
 async function signUpUser(data) {
     const response = await fetch(
-      `http://localhost:3001/orders`,
+      `http://localhost:3001/users`,
       {
         method: "POST",
         headers: {
