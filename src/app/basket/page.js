@@ -1,11 +1,13 @@
 import Basket from "@/components/BasketPage/Basket";
 import Header from "@/layouts/HeaderMUI/Header";
 
-export default function BasketPage () {
+const BasketPage = () => {
   return (
-  <>
-  <Header/>
-    <Basket />
+    <>
+      <Header />
+      <Basket />
     </>
   );
 }
+
+export default BasketPage;
