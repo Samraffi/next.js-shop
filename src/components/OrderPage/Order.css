@@ -101,6 +101,9 @@
   font-size: 30px;
 }
 
+.order-buy {
+  margin: 15px 0;
+}
 .order-buy-button {
   width: 100%;
   font-size: 20px;
@@ -125,7 +128,7 @@
 
 .order-delivery {
   width: 100%;
-  padding: 15px;
+  padding: 30px;
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 5px whitesmoke;
@@ -133,14 +136,46 @@
 }
 
 .order-delivery h2 {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .order-delivery-address {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   margin-bottom: 10px;
+  gap: 20px;
+}
+
+.order-delivery-address span {
+  font-size: 19px;
+  margin: 0 6px;
+  text-overflow: ellipsis;
+}
+
+.order-delivery-address-input input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+}
+
+.order-payment-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.order-payment-options-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.order-payment-options-item input {
+  background-color: #7171f7;
 }
 
 .order-paymentDetails {
@@ -151,27 +186,36 @@
 
 .order-payment {
   margin-right: 10px;
-  font-size: 20px;
 }
 .order-payment,
 .order-details {
   width: 50%;
-  padding: 15px;
+  padding: 20px;
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 5px whitesmoke;
 }
 
-.order-details h2 {
-  margin-bottom: 10px;
-}
-.order-payment h2 {
-  margin-bottom: 10px;
+.order-paymentDetails-title h2 {
+  margin-bottom: 20px;
 }
 
 .order-details img {
-  width: 7%;
-  opacity: 0.5;
+  width: 6.5%;
+  opacity: 0.8;
+}
+
+.order-details-description {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-details-description span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0 6px;
 }
 
 @media (max-width: 1300px) {

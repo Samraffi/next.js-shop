@@ -1,4 +1,4 @@
-import Header from "../layouts/Header";
+import Header from "../layouts/HeaderMUI/Header";
 import Home from "../components/HomePage/Home";
 
 export default function HomePage () {
@@ -6,7 +6,6 @@ export default function HomePage () {
     <>
       <Header />
       <Home />
-      
     </>
   );
 }

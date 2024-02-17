@@ -1,31 +1,76 @@
 "use client";
 
-import styles from "./login.module.css"
-import "../../services/login"
+import { Formik, Field, Form } from "formik";
+import * as Yup from "yup";
+import { motion } from "framer-motion";
+import styles from "./login.module.css";
+import Link from "next/link";
+
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string().required("Required"),
+});
 
 export default function Login() {
   return (
-    <div>
-      <form className={`${styles.signForm}`} onSubmit={() => loginUser()}>
-        <div className={`${styles.container}`}>
-          <label htmlFor="uname"><b>Username</b></label><br />
-          <input className={`${styles.txtInput}`} type="text" placeholder="Enter Username" name="email" required /><br />
-
-          <label htmlFor="psw"><b>Password</b></label> <br />
-          <input className={`${styles.pswInput}`} type="password" placeholder="Enter Password" name="psw" required />
-              
-          <button className={`${styles.btn}`} type="submit" /*onClick={() => checkLogin()}*/>Login</button>
-          {/* <label htmlFor='remember'>
-            <input id='remember' type="checkbox" checked="checked" name="remember" /> Remember me
-          </label>  */}
-        </div>
-        <button type="button" className={`${styles.change} ${styles.btn}`}> <a className={`${styles.sgn}`} href="sign-up">sign up</a> </button>
-
-        {/* <div className={`${styles.container}`} /*style="background-color:#f1f1f1">
-          <button type="button" className={`${styles["cancel-btn"]} ${styles.btn}`}>Cancel</button>
-          <span className={`${styles.psw}`}>Forgot <a href="#">password?</a></span>
-        </div> */}
-      </form>
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay: 0.5 }}
+    >
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        validationSchema={LoginSchema}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
+        {({ errors, touched }) => (
+          <Form className={`${styles.signForm}`}>
+            <div className={`${styles.container}`}>
+              <label htmlFor="email">
+                <b>Username</b>
+              </label>
+              <br />
+              <Field
+                className={`${styles.txtInput}`}
+                type="text"
+                name="email"
+              />
+              <div className={`${styles.error}`}>{errors.email && touched.email ? <div>{errors.email}</div> : null}</div>
+              <br />
+              <label htmlFor="password">
+                <b>Password</b>
+              </label>{" "}
+              <br />
+              <Field
+                className={`${styles.pswInput}`}
+                type="password"
+                name="password"
+              />
+              {errors.password && touched.password ? (
+                <div>{errors.password}</div>
+              ) : null}
+              <motion.button
+                className={`${styles.btn}`}
+                type="submit"
+                whileHover={{ scale: 1.05 }}
+              >
+                Login
+              </motion.button>
+            </div>
+            <motion.button
+              type="button"
+              className={`${styles.change} ${styles.btn}`}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Link href="/sign-up" className={`${styles.sgn}`}>
+                Sign Up
+              </Link>
+            </motion.button>
+          </Form>
+        )}
+      </Formik>
+    </motion.div>
   );
 }

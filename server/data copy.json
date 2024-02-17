@@ -681,7 +681,29 @@
       }
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "buy": false,
+      "quantity": 6,
+      "id": 1,
+      "productsId": 15,
+      "usersTocken": "c4ca4238a0b923820dcc509a6f75"
+    },
+    {
+      "buy": false,
+      "quantity": 6,
+      "id": 2,
+      "productsId": 19,
+      "usersTocken": "c4ca4238a0b923820dcc509a6f75"
+    },
+    {
+      "buy": false,
+      "quantity": 1,
+      "id": 15,
+      "productsId": 16,
+      "usersTocken": "7vAJzB6LPLV6Crx8F4g2mBpbK8X2"
+    }
+  ],
   "users": [
     {
       "id": 1,
