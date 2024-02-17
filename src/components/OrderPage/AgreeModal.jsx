@@ -7,10 +7,11 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Link from "next/link";
 
-export default function AlertDialog() {
+export default function AlertDialog({ handelCloseAgree }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
+    handelCloseAgree();
     setOpen(true);
   };
 

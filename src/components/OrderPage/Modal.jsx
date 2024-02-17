@@ -77,9 +77,7 @@ export default function AlertDialogSlide({ className }) {
           >
             Disagree
           </Button>
-          <Button onClick={handelCloseAgree} autoFocus>
-            <AgreeModal />
-          </Button>
+          <AgreeModal handelCloseAgree={handelCloseAgree} />
         </DialogActions>
       </Dialog>
     </React.Fragment>

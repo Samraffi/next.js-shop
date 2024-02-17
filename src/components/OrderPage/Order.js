@@ -58,19 +58,19 @@ function Order() {
               <div className="order-payment-options">
                 <label>
                   <div className="order-payment-options-item">
-                    <input type="radio" name="payment" checked />
+                    <input type="radio" name="payment" />
                     <span>Cash</span>
                   </div>
                 </label>
                 <label>
                   <div className="order-payment-options-item">
-                    <input type="radio" name="payment" checked />
+                    <input type="radio" name="payment" />
                     <img src="../image/cards.svg" alt="Image" />
                   </div>
                 </label>
                 <label>
                   <div className="order-payment-options-item">
-                    <input type="radio" name="payment" checked />
+                    <input type="radio" name="payment" />
                     <img src="../image/idram.svg" alt="Image" />
                   </div>
                 </label>
