@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide({ className }) {
+export default function AlertDialogSlide({ product }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -32,7 +32,6 @@ export default function AlertDialogSlide({ className }) {
       <Button
         variant="outlined"
         onClick={handleClickOpen}
-        className={className}
         sx={{
           color: "white",
         }}
@@ -80,7 +79,7 @@ export default function AlertDialogSlide({ className }) {
           >
             Disagree
           </Button>
-          <AgreeModal handelCloseAgree={handelCloseAgree} />
+          <AgreeModal product={product} handelCloseAgree={handelCloseAgree} />
         </DialogActions>
       </Dialog>
     </React.Fragment>
