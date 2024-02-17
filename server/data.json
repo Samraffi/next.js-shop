@@ -681,34 +681,7 @@
       }
     }
   ],
-  "orders": [
-    {
-      "data": {
-        "title": "Handmade Plastic Pizza",
-        "images": [
-          "https://i.imgur.com/eGOUveI.jpeg",
-          "https://i.imgur.com/UcsGO7E.jpeg",
-          "https://i.imgur.com/NLn4e7S.jpeg"
-        ],
-        "id": 14,
-        "price": 181
-      },
-      "id": 1
-    },
-    {
-      "data": {
-        "title": "Handmade Plastic Pizza",
-        "images": [
-          "https://i.imgur.com/eGOUveI.jpeg",
-          "https://i.imgur.com/UcsGO7E.jpeg",
-          "https://i.imgur.com/NLn4e7S.jpeg"
-        ],
-        "id": 14,
-        "price": 181
-      },
-      "id": 2
-    }
-  ],
+  "orders": [],
   "users": [
     {
       "id": 1,

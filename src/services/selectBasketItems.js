@@ -1,4 +1,4 @@
-async function selectBasketItemsToDb(data) {
+async function selectBasketItemsToDb(data, quantity, usersTocken) {
   const response = await fetch(
     `http://localhost:3001/orders`,
     {
@@ -6,7 +6,12 @@ async function selectBasketItemsToDb(data) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({data})
+      body: JSON.stringify({
+        buy: false,
+        productsId: data.productsId,
+        quantity: productsId && productsId.quantity ? productsId.quantity: 1,
+        usersTocken,
+      })
     }
   );
 
