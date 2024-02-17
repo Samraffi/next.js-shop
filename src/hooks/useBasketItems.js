@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allBasketItems } from "@/store/basketItems/allReducer";
-import getProducts from "@/helpers/getProducts";
+import getProducts from "@/services/getProducts";
 
 const useBasketItems = () => {
   const dispatch = useDispatch();

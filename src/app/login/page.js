@@ -1,12 +1,11 @@
 "use client";
 
 import styles from "./login.module.css"
-import "../../services/login"
 
 export default function Login() {
   return (
     <div>
-      <form className={`${styles.signForm}`} onSubmit={() => loginUser()}>
+      <form className={`${styles.signForm}`} onSubmit={() => "loginUser()"}>
         <div className={`${styles.container}`}>
           <label htmlFor="uname"><b>Username</b></label><br />
           <input className={`${styles.txtInput}`} type="text" placeholder="Enter Username" name="email" required /><br />
