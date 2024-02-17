@@ -1,19 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import Modal from "./Modal";
 import { useSelector } from "react-redux";
 import "./Order.css";
+import { motion } from "framer-motion";
 
 function Order() {
   const selectBasketItems = useSelector(
     (state) => state.selectBasketItems.selectBasketItems
   );
+  const isEmpty = () => {};
+
 
   return (
     <div className="order">
-      <div>
+      <motion.div
+        initial={{ opacity: 0, translateY: '20px' }}
+        animate={{ opacity: 1, translateY: '0' }}
+        transition={{ duration: 0.5 }}
+      >
         <Link href="/">GoTo</Link>
-      </div>
+      </motion.div>
       <div className="order-content">
         <div className="order-content-left">
           <div className="order-product">
@@ -92,7 +100,7 @@ function Order() {
             <span>0 $</span>
           </div>
           <div className="order-buy">
-            <button className="order-buy-button">Order</button>
+            <Modal className="order-buy-button" />
           </div>
           <div className="order-convention">
             <span>

@@ -1,47 +1,176 @@
-import React from "react"
-import styles from "./sign-up.module.css"
+"use client";
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { motion } from "framer-motion";
+import styles from "./sign-up.module.css";
+import Link from "next/link";
 
-const signUp = () => {
+const signUpSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  fname: Yup.string().required("Required"),
+  lname: Yup.string().required("Required"),
+  phone: Yup.string()
+    .matches(
+      /^(\+\d{1,3}[- ]?)?\d{9}$/,
+      "Phone number must be 9 digits and may start with a country code"
+    )
+    .required("Required"),
+  psw: Yup.string().required("Required"),
+  "psw-repeat": Yup.string()
+    .oneOf([Yup.ref("psw"), null], "Passwords must match")
+    .required("Required"),
+});
+
+const SignUp = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      fname: "",
+      lname: "",
+      phone: "",
+      psw: "",
+      "psw-repeat": "",
+    },
+    validationSchema: signUpSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
   return (
     <div>
-      <form action="" className={`${styles.signForm}`}>
+      <motion.form
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        onSubmit={formik.handleSubmit}
+        className={`${styles.signForm}`}
+      >
         <div className={`${styles.container}`}>
           <p>Please fill in this form to create an account.</p>
           <hr className={`${styles.horizontalLine}`} />
 
-          <label htmlFor="email"><b>Email</b></label>
-          <input id="email" className={`${styles.txtInput}`} type="text" placeholder="Enter Email" name="email" required />
-
-          <label htmlFor="fname"><b>First name</b></label>
-          <input id="fname" className={`${styles.txtInput}`} type="text" placeholder="first name" name="fname" required />
-          
-          <label htmlFor="lname"><b>Last Name</b></label>
-          <input id="lname" className={`${styles.txtInput}`} type="text" placeholder="first name" name="lname" required />
-
-          <label htmlFor="phone"><b>phone number</b></label>
-          <input id="phone" className={`${styles.txtInput}`} type="text" placeholder="first name" name="phone" required />
-
-          <label htmlFor="psw"><b>Password</b></label>
-          <input className={`${styles.pswInput}`} type="password" placeholder="Enter Password" name="psw" required />
-
-          <label htmlFor="psw-repeat"><b>Repeat Password</b></label>
-          <input className={`${styles.pswInput}`} type="password" placeholder="Repeat Password" name="psw-repeat" required />
-          
-          <label>
-            <input type="checkbox" /* checked="checked"*/ name="remember" /*style="margin-bottom:15px" *//> Remember me
+          <label htmlFor="fname">
+            <b>First Name</b>
           </label>
-          
-          <p>By creating an account you agree to our <button /*style="color:dodgerblue"*/>Terms & Privacy</button>.</p>
+          <input
+            id="fname"
+            className={`${styles.txtInput}`}
+            type="text"
+            placeholder="First Name"
+            name="fname"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.fname}
+            required
+          />
+          {formik.touched.fname && formik.errors.fname && (
+            <div className={`${styles.error}`}>{formik.errors.fname}</div>
+          )}
 
-          <div className={`${styles.clearfix}`}>
-            <button type="button" className={`${styles["cancel-btn"]} ${styles.halfWidth}`}>Cancel</button>
-            <button type="submit" className={`${styles.btn} ${styles.halfWidth}`} /*onClick={signUp()}*/>Sign Up</button>
-          </div>
+          <label htmlFor="lname">
+            <b>Last Name</b>
+          </label>
+          <input
+            id="lname"
+            className={`${styles.txtInput}`}
+            type="text"
+            placeholder="Last Name"
+            name="lname"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lname}
+            required
+          />
+          {formik.touched.lname && formik.errors.lname && (
+            <div className={`${styles.error}`}>{formik.errors.lname}</div>
+          )}
+          <label htmlFor="email">
+            <b>Email</b>
+          </label>
+          <input
+            id="email"
+            className={`${styles.txtInput}`}
+            type="email"
+            placeholder="Email"
+            name="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            required
+          />
+          {formik.touched.email && formik.errors.email && (
+            <div className={`${styles.error}`}>{formik.errors.email}</div>
+          )}
+
+          <label htmlFor="phone">
+            <b>Phone Number</b>
+          </label>
+          <input
+            id="phone"
+            className={`${styles.txtInput}`}
+            type="text"
+            placeholder="Phone Number"
+            name="phone"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.phone}
+            required
+          />
+          {formik.touched.phone && formik.errors.phone && (
+            <div className={`${styles.error}`}>{formik.errors.phone}</div>
+          )}
+
+          <label htmlFor="psw">
+            <b>Password</b>
+          </label>
+          <input
+            id="psw"
+            className={`${styles.txtInput}`}
+            type="password"
+            placeholder="Password"
+            name="psw"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.psw}
+            required
+          />
+          {formik.touched.psw && formik.errors.psw && (
+            <div className={`${styles.error}`}>{formik.errors.psw}</div>
+          )}
+
+          <label htmlFor="psw-repeat">
+            <b>Repeat Password</b>
+          </label>
+          <input
+            id="psw-repeat"
+            className={`${styles.txtInput}`}
+            type="password"
+            placeholder="Repeat Password"
+            name="psw-repeat"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values["psw-repeat"]}
+            required
+          />
+          {formik.touched["psw-repeat"] && formik.errors["psw-repeat"] && (
+            <div className={`${styles.error}`}>
+              {formik.errors["psw-repeat"]}
+            </div>
+          )}
         </div>
-        <button type="button" className={`${styles.change} ${styles.btn}`}> <a className={`${styles.sgn}`} href="login">sign in</a> </button>
-      </form>
+        <div className={`${styles.buttonContainer}`}>
+          <button type="submit" className={`${styles.btn} ${styles.halfWidth}`}>
+            Sign Up
+          </button>
+          <Link href="/login" className={`${styles.btn} ${styles.halfWidth}`}>
+            Login
+          </Link>
+        </div>
+      </motion.form>
     </div>
-  )
-}
+  );
+};
 
-export default signUp
+export default SignUp;
