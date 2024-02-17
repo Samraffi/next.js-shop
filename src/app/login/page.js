@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 import styles from "./login.module.css";
 import Link from "next/link";
 import Header from "@/layouts/HeaderMUI/Header";
+import checkUsers from "@/services/checkLogin";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string().required("Required"),
 });
 
-export default function Login() {
+const Login = () => {
   return (
     <>
       <Header />
@@ -25,7 +26,7 @@ export default function Login() {
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            console.log(values);
+            checkUsers(values);
           }}
         >
           {({ errors, touched }) => (
@@ -82,3 +83,5 @@ export default function Login() {
     </>
   );
 }
+
+export default Login;

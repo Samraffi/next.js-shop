@@ -19,19 +19,22 @@ const UserMenu = ({
   handleOpenUserMenu,
   handleCloseUserMenu,
 }) => {
-
   return (
     <Grid item>
-      {auth && <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-        <Avatar sx={{ bgcolor: blueGrey[500] }}>{NAME[0]}</Avatar>
-      </IconButton>}
-      {!auth && <Tooltip title="Login to...">
-        <Link href="/login">
-          <IconButton>
-            <LoginIcon color="primary" />
-          </IconButton>
-        </Link>
-      </Tooltip>}
+      {auth && (
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Avatar sx={{ bgcolor: blueGrey[500] }}>{NAME[0]}</Avatar>
+        </IconButton>
+      )}
+      {!auth && (
+        <Tooltip title="Login to...">
+          <Link href="/login">
+            <IconButton>
+              <LoginIcon color="primary" />
+            </IconButton>
+          </Link>
+        </Tooltip>
+      )}
       <Menu
         sx={{ mt: "45px" }}
         id="menu-appbar"
