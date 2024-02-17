@@ -10,7 +10,16 @@ const signUp = () => {
           <hr className={`${styles.horizontalLine}`} />
 
           <label htmlFor="email"><b>Email</b></label>
-          <input className={`${styles.txtInput}`} type="text" placeholder="Enter Email" name="email" required />
+          <input id="email" className={`${styles.txtInput}`} type="text" placeholder="Enter Email" name="email" required />
+
+          <label htmlFor="fname"><b>First name</b></label>
+          <input id="fname" className={`${styles.txtInput}`} type="text" placeholder="first name" name="fname" required />
+          
+          <label htmlFor="lname"><b>Last Name</b></label>
+          <input id="lname" className={`${styles.txtInput}`} type="text" placeholder="first name" name="lname" required />
+
+          <label htmlFor="phone"><b>phone number</b></label>
+          <input id="phone" className={`${styles.txtInput}`} type="text" placeholder="first name" name="phone" required />
 
           <label htmlFor="psw"><b>Password</b></label>
           <input className={`${styles.pswInput}`} type="password" placeholder="Enter Password" name="psw" required />

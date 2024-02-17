@@ -11,7 +11,7 @@ const allBasketItemsSlice = createSlice({
   initialState,
   reducers: {
     allBasketItems (state, { payload }) {
-      state.allBasketItems = payload;
+      state.allBasketItems = payload;//state.allBaskets.push(payload)
     }
   }
 });

@@ -26,21 +26,63 @@ function Order() {
                   </div>
                   <div className="order-product-item-description">
                     <h2>{item.title}</h2>
-                    <p>${item.price}</p>
                   </div>
                   <div className="order-product-item-quantity">
-                    <div className="quantity-add">-</div>
                     <div className="quantity-number">1</div>
-                    <div className="quantity-remove">+</div>
+                  </div>
+                  <div className="order-product-item-total">
+                    <p>${item.price}</p>
                   </div>
                 </div>
               );
             })}
           </div>
-          <div className="order-delivery"></div>
-          <div className="order-PaymentDetails">
-            <div className="order-payment"></div>
-            <div className="order-details"></div>
+          <div className="order-delivery">
+            <h2>Delivery method</h2>
+            <div className="order-delivery-address">
+              <div className="order-delivery-address-title">
+                <span>Address</span>
+              </div>
+              <div className="order-delivery-address-input">
+                <input type="text" />
+              </div>
+            </div>
+          </div>
+          <div className="order-paymentDetails">
+            <div className="order-payment">
+              <div className="order-paymentDetails-title">
+                <h2>Payment method</h2>
+              </div>
+              <div className="order-payment-options">
+                <label>
+                  <div className="order-payment-options-item">
+                    <input type="radio" name="payment" />
+                    <span>Cash</span>
+                  </div>
+                </label>
+                <label>
+                  <div className="order-payment-options-item">
+                    <input type="radio" name="payment" />
+                    <img src="../image/cards.svg" alt="Image" />
+                  </div>
+                </label>
+                <label>
+                  <div className="order-payment-options-item">
+                    <input type="radio" name="payment" />
+                    <img src="../image/idram.svg" alt="Image" />
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div className="order-details">
+              <div className="order-paymentDetails-title">
+                <h2>My details</h2>
+              </div>
+              <div className="order-details-description">
+                <img src="../image/user.png" alt="Image" />
+                <span>John,+374 11 111 111</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="order-content-right">
