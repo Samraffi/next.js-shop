@@ -1,11 +1,11 @@
-async function getOrders(usersTocken) {
+async function buyBasketItems(id) {
   const response = await fetch(
-    `http://localhost:3001/orders?usersTocken=${usersTocken}&_expand=products&_expand=users.tocken`,
+    `http://localhost:3001/orders`,
     {
-      method: "GET",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-      },
+      }
     }
   );
 
@@ -16,4 +16,4 @@ async function getOrders(usersTocken) {
   return response.json();
 }
 
-export default getOrders;
+export default buyBasketItems;
