@@ -8,7 +8,7 @@ const AboutUs = () => {
     <div className={styles.aboutUsContainer}>
       <h2>Welcome to Our Online Shop!</h2>
       <p>
-        At [Your Shop Name], we are passionate about providing high-quality
+        We are passionate about providing high-quality
         products to our customers. Our online shop is dedicated to offering a
         wide range of products that cater to your needs, whether it's the latest
         fashion trends, cutting-edge electronics, or essential home goods.
@@ -49,7 +49,7 @@ const AboutUs = () => {
       </p>
 
       <p>
-        Thank you for choosing [Your Shop Name]. We look forward to serving you
+        Thank you for choosing us. We look forward to serving you
         and providing an exceptional online shopping experience!
       </p>
     </div>
