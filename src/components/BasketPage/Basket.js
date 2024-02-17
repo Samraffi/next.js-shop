@@ -45,7 +45,7 @@ function Basket() {
   const buyItems = () => {
     dispatch(selectBasketItems([]));
 
-    // selectBasketElems
+  
   };
 
   return (
