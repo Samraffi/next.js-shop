@@ -18,11 +18,7 @@
     "@mui/material-nextjs": "^5.15.9",
     "@mui/system": "^5.15.9",
     "@reduxjs/toolkit": "^2.0.1",
-<<<<<<< HEAD
-=======
     "emailjs-com": "^3.2.0",
-    "firebase": "^10.8.0",
->>>>>>> f322667cd71c527ba073d00d9baa0fecaa397112
     "formik": "^2.4.5",
     "framer-motion": "^11.0.5",
     "next": "^14.1.0",
