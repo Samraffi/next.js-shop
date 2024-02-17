@@ -1,14 +1,15 @@
 import getUsers from "./getUsers";
-import { useRouter } from "next/navigation";
 
-export default async function checkUsers(data) {
+const checkUsers = async (data) => {
   const users = await getUsers();
-  const router = useRouter();
   users.map((user) => {
     if (user.email === data.email && user.password === data.password) {
-      console.log("yes");
       localStorage.setItem("userId", JSON.stringify(user.id));
-      router.back()
+      history.back();
+    } else {
+      alert("there is no such a user, try again");
     }
   });
 }
+
+export default checkUsers;

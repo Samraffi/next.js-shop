@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import styles from "./sign-up.module.css";
 import Link from "next/link";
 import Header from "@/layouts/HeaderMUI/Header";
+import signUp from "@/services/signUp";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -35,7 +36,7 @@ const SignUp = () => {
     },
     validationSchema: signUpSchema,
     onSubmit: (values) => {
-      console.log(values);
+      signUp(values)
     },
   });
 

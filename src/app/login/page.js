@@ -13,7 +13,7 @@ const LoginSchema = Yup.object().shape({
   password: Yup.string().required("Required"),
 });
 
-export default function Login() {
+const Login = () => {
   return (
     <>
       <Header />
@@ -26,7 +26,6 @@ export default function Login() {
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            // console.log(values);
             checkUsers(values);
           }}
         >
@@ -84,3 +83,5 @@ export default function Login() {
     </>
   );
 }
+
+export default Login;
