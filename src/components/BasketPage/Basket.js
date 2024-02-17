@@ -133,7 +133,7 @@ function Basket() {
             variant="contained"
             fullWidth
           >
-            <Modal product={product} />
+            <Modal />
           </StyledBasketBuyButton>
           <Box mt={2} textAlign="center">
             <Typography>

@@ -23,12 +23,12 @@ export default function AgreeModal({ handelCloseAgree, product }) {
     setOpen(false);
   };
   const buyItems = (product) => {
-    selectBasketItemsToDb({
-      buy: false,
-      productsId: product.id,
-      quantity: product && product.quantity ? product.quantity: 1,
-      usersTocken: uuidv4()
-    });
+    // selectBasketItemsToDb({
+    //   buy: false,
+    //   productsId: product.id,
+    //   quantity: product && product.quantity ? product.quantity: 1,
+    //   usersTocken: uuidv4()
+    // });
     dispatch(selectBasketItems([]));
     handleClose();
   };
