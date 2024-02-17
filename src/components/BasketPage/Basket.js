@@ -14,7 +14,6 @@ import {
   StyledDeleteButton,
 } from "./Basket.style";
 import DeleteIcon from "@mui/icons-material/Delete";
-import changeCountBasketItems from "@/services/changeCountBasketItems";
 import { useSelector, useDispatch } from "react-redux";
 import useBasketItems from "@/hooks/useBasketItems";
 import getUpdatedBasketItems from "@/helpers/getUpdatedBasketItems";
@@ -22,7 +21,7 @@ import { selectBasketItems } from "@/store/basketItems/selectReducer";
 import deleteBasketItem from "@/helpers/deleteBasketItem";
 import minusUptadeBasketItem from "@/helpers/minusUptadeBasketItem";
 
-import Modal from "../OrderPage/Modal";
+import Modal from "./Modal";
 
 function Basket() {
   const selectBasketItemsAll = useSelector(
@@ -134,7 +133,7 @@ function Basket() {
             variant="contained"
             fullWidth
           >
-            <Modal />
+            <Modal product={product} />
           </StyledBasketBuyButton>
           <Box mt={2} textAlign="center">
             <Typography>
