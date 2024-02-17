@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import styles from "./sign-up.module.css";
 import Link from "next/link";
+import Header from "@/layouts/HeaderMUI/Header";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -40,6 +41,7 @@ const SignUp = () => {
 
   return (
     <div>
+      <Header />
       <motion.form
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

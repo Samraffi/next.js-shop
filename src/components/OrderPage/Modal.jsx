@@ -30,11 +30,14 @@ export default function AlertDialogSlide({ className }) {
   return (
     <React.Fragment>
       <Button
-        variant="contained"
+        variant="outlined"
         onClick={handleClickOpen}
         className={className}
+        sx={{
+          color: "white",
+        }}
       >
-        Buy
+        Buy Now
       </Button>
       <Dialog
         sx={{

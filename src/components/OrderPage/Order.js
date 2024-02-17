@@ -12,12 +12,11 @@ function Order() {
   );
   const isEmpty = () => {};
 
-
   return (
     <div className="order">
       <motion.div
-        initial={{ opacity: 0, translateY: '20px' }}
-        animate={{ opacity: 1, translateY: '0' }}
+        initial={{ opacity: 0, translateY: "20px" }}
+        animate={{ opacity: 1, translateY: "0" }}
         transition={{ duration: 0.5 }}
       >
         <Link href="/">GoTo</Link>
