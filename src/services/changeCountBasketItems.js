@@ -1,11 +1,14 @@
-async function getOrders(usersTocken) {
+async function changeCountBasketItems(id, newQuantity) {
   const response = await fetch(
-    `http://localhost:3001/orders?usersTocken=${usersTocken}&_expand=products&_expand=users.tocken`,
+    `http://localhost:3001/orders/${id}`,
     {
-      method: "GET",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        quantity: newQuantity
+      })
     }
   );
 
@@ -16,4 +19,4 @@ async function getOrders(usersTocken) {
   return response.json();
 }
 
-export default getOrders;
+export default changeCountBasketItems;

@@ -1,8 +1,11 @@
 import About from "@/components/AboutPage/About";
+import Header from "@/layouts/HeaderMUI/Header";
 
 const AboutPage = () => {
-  return (
+  return (<>
+     <Header/>
     <About />
+    </>
   );
 };
 
