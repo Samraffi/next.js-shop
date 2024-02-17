@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { selectBasketItems } from "@/store/basketItems/selectReducer";
 import getUpdatedBasketItems from "@/helpers/getUpdatedBasketItems";
@@ -41,9 +40,6 @@ function Home () {
           ))}
         </div>
       </div>
-      <button>
-        <Link href="/contact">contact</Link>
-      </button>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 14,
       "title": "Handmade Plastic Pizza",
@@ -679,6 +679,39 @@
         "creationAt": "2023-12-11T05:13:28.000Z",
         "updatedAt": "2023-12-11T05:13:28.000Z"
       }
+    }
+  ],
+  "orders": [
+    {
+      "buy": false,
+      "quantity": 10,
+      "id": 1,
+      "productsId": 15,
+      "usersTocken": "c4ca4238a0b923820dcc509a6f75"
+    },
+    {
+      "buy": false,
+      "quantity": 2,
+      "id": 15,
+      "productsId": 16,
+      "usersTocken": "c4ca4238a0b923820dcc509a6f75"
+    }
+  ],
+  "users": [
+    {
+      "tocken": "c4ca4238a0b923820dcc509a6f75",
+      "email": "email@gmail.com",
+      "password": "password"
+    },
+    {
+      "id": "7vAJzB6LPLV6Crx8F4g2mBpbK8X2",
+      "email": "aws.wuwu@gmail.com",
+      "password": "9uQFF1Lh"
+    },
+    {
+      "tocken": "TkI6gEyjGqOiRXJ3QnHwt4P2LVN2",
+      "email": "sam.dd@gkub.pp",
+      "password": "9uQFF1Lh"
     }
   ]
 }
