@@ -5,10 +5,14 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { selectBasketItems } from "@/store/basketItems/selectReducer";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import selectBasketItemsToDb from "@/services/selectBasketItems";
 
-export default function AlertDialog({ handelCloseAgree }) {
+export default function AgreeModal({ handelCloseAgree, product }) {
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
 
   const handleClickOpen = () => {
     handelCloseAgree();
@@ -17,6 +21,16 @@ export default function AlertDialog({ handelCloseAgree }) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const buyItems = (product) => {
+    // selectBasketItemsToDb({
+    //   buy: false,
+    //   productsId: product.id,
+    //   quantity: product && product.quantity ? product.quantity: 1,
+    //   usersTocken: uuidv4()
+    // });
+    dispatch(selectBasketItems([]));
+    handleClose();
   };
 
   return (
@@ -60,7 +74,7 @@ export default function AlertDialog({ handelCloseAgree }) {
         </DialogContent>
         <DialogActions>
           <Link href="/" style={{ textDecoration: "none", color: "white" }}>
-            <Button onClick={handleClose} autoFocus variant="contained">
+            <Button autoFocus variant="contained" onClick={() => buyItems(product)}>
               OK
             </Button>
           </Link>

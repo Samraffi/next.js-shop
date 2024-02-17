@@ -14,8 +14,6 @@ function Home () {
   const { allBasketElems, selectBasketElems} = useBasketItems();
 
   const onClickAdd = (product) => {
-    let usersTocken = uuidv4();
-    selectBasketItemsToDb(product, usersTocken);
     const updatedBasketItems = getUpdatedBasketItems(selectBasketElems, product);
     dispatch(selectBasketItems(updatedBasketItems));
   };
