@@ -1,99 +1,140 @@
-.row {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 2%;
-    margin-top: 100px;
-}
-.signUp, .signIn {
-    width: 49%;    
-}
 .signForm {
-  width: 50%;
-  margin: 100px auto;
-  border: 3px solid #f1f1f1;
-}
-
-.txtInput, .pswInput{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  max-width: 500px;
+  margin: 150px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
-
-.btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-.btn:hover {
-  opacity: 0.8;
-}
-
-.cancel-btn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+.signForm:hover {
+  background-color: #e9ecef;
 }
 
 .container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-.change {
-  width: 95%;
-  display: flex;
-  margin: 10px auto;
-  justify-content: center;
-  background-color: rgba(154, 153, 153, 0.2);
-  border-radius: 20px;
-}
-.sgn {
-  text-decoration: none;
   width: 100%;
 }
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
+
+.container p {
+  text-align: center;
+  font-size: 1.2em;
+  color: #6c757d;
+  transition: color 0.3s ease;
+  animation: button-pulse 2s infinite;
+}
+.container p:hover {
+  color: #343a40;
+}
+
+.txtInput {
+  width: 100%;
+  padding: 10px;
+  margin: 10px -10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  border-color: #ced4da;
+  transition: border-color 0.3s ease;
+}
+.txtInput:focus {
+  border-color: #495057;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn {
+  width: 45%;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  text-decoration: none;
+  text-align: center;
+  background-color: #007bff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: color-shift 2s infinite;
+  /* animation: button-pulse 2s infinite; */
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
   }
-  .cancel-btn {
-     width: 100%;
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
-.halfWidth {
-    width: 50%;
-    float: left;
-    padding: 10px;
-    margin: 0;
-    border: none;
-    color: white;
+.error {
+  margin-bottom: 10px;
+  font-size: 0.8em;
+  color: #dc3545;
+  transition: color 0.3s ease;
 }
-.halfWidth:hover {
-    opacity: 1;
-}
+
 .horizontalLine {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+  border-top-color: #ced4da;
+  transition: border-top-color 0.3s ease;
+}
+.horizontalLine:hover {
+  border-top-color: #495057;
+}
+
+.halfWidth {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+  .halfWidth {
+    width: 48%;
+    margin-right: 2%;
+    transition: background-color 0.3s ease;
   }
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+
+  .halfWidth:last-child {
+    margin-right: 0;
   }
-  @media screen and (max-width: 300px) {
-    .halfWidth {
-       width: 100%;
-    }
+
+  .halfWidth:hover {
+    background-color: #e9ecef;
   }
+}
+
+@keyframes color-shift {
+  0% {
+    background-color: #007bff;
+  }
+  50% {
+    background-color: #0056b3;
+  }
+  100% {
+    background-color: #007bff;
+  }
+}

@@ -1,11 +1,14 @@
-async function getOrders(usersTocken) {
+async function selectBasketItemsToDb(data) {
   const response = await fetch(
-    `http://localhost:3001/orders?usersTocken=${usersTocken}&_expand=products&_expand=users.tocken`,
+    `http://localhost:3001/orders`,
     {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        ...data
+      })
     }
   );
 
@@ -16,4 +19,4 @@ async function getOrders(usersTocken) {
   return response.json();
 }
 
-export default getOrders;
+export default selectBasketItemsToDb;

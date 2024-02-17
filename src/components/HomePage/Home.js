@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { selectBasketItems } from "@/store/basketItems/selectReducer";
 import getUpdatedBasketItems from "@/helpers/getUpdatedBasketItems";
 import useBasketItems from "@/hooks/useBasketItems";
+import selectBasketItemsToDb from "@/services/selectBasketItems";
+import {v4 as uuidv4} from "uuid";
+
 import "./Home.css";
 
 function Home () {
