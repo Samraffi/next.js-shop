@@ -10,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { NAME, SETTINGS } from "@/constants";
+import { AVATAR, SETTINGS } from "@/constants";
 import { blueGrey } from "@mui/material/colors";
 
 const UserMenu = ({
@@ -19,11 +19,16 @@ const UserMenu = ({
   handleOpenUserMenu,
   handleCloseUserMenu,
 }) => {
+
+  const logOut = () => {
+    localStorage.removeItem("tocken");
+  }
+
   return (
     <Grid item>
       {auth && (
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar sx={{ bgcolor: blueGrey[500] }}>{NAME[0]}</Avatar>
+          <Avatar sx={{ bgcolor: blueGrey[500] }}>{AVATAR[0]}</Avatar>
         </IconButton>
       )}
       {!auth && (
@@ -52,7 +57,7 @@ const UserMenu = ({
       >
         {SETTINGS.map((setting) => (
           <MenuItem sx={{ m: 0 }} key={setting} onClick={handleCloseUserMenu}>
-            <LogoutIcon />
+            <LogoutIcon onClick={() => logOut()} />
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
         ))}

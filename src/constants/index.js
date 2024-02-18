@@ -6,4 +6,4 @@ export const PAGES = [
 ];
 
 export const SETTINGS = ["Logout"];
-export const NAME = "Samvel";
+export const AVATAR = "Avatar";

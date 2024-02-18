@@ -1,15 +1,19 @@
-import getUsers from "./getUsers";
-
-const checkUsers = async (data) => {
-  const users = await getUsers();
-  users.map((user) => {
-    if (user.email === data.email && user.password === data.password) {
-      localStorage.setItem("userId", JSON.stringify(user.id));
-      history.back();
-    } else {
-      alert("there is no such a user, try again");
+async function checkLogin(email, password) {
+  const response = await fetch(
+    `http://localhost:3001/users?_email=${email}&password=${password}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
-  });
+  );
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
 }
 
-export default checkUsers;
+export default checkLogin;
