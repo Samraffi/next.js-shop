@@ -8,7 +8,7 @@ export default async function checkUsers(data) {
     if (user.email === data.email && user.password === data.password) {
       localStorage.setItem("userId", JSON.stringify(user.id));
       userDetails = true;
-      return history.back();
+      history.back();
     }
   });
   alert("there is no such a user, try again");
