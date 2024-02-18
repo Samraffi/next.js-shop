@@ -3,11 +3,15 @@ import getUsers from "./getUsers";
 import signUpUser from "./register";
 export default async function signUp(data) {
     const users = await getUsers();
+    let userDetails
     users.map((user) => {
       if (user.email === data.email) {
-        alert('there is already an user with this email. Please sign up with other email or just login')
-      } else {
-        signUpUser(data)
+        userDetails = user
       }
     });
+    if(userDetails) {
+        throw new Error("Email already in use")
+    } else {
+        return await signUpUser(data)
+    }
   }
