@@ -7,6 +7,7 @@ import styles from "./login.module.css";
 import Link from "next/link";
 import Header from "@/layouts/HeaderMUI/Header";
 import checkUsers from "@/services/checkLogin";
+import { useRouter } from "next/navigation";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -14,6 +15,8 @@ const LoginSchema = Yup.object().shape({
 });
 
 const Login = () => {
+  const { push } = useRouter();
+
   return (
     <>
       <Header />
@@ -26,7 +29,13 @@ const Login = () => {
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            checkUsers(values);
+            checkUsers(values.email, values.password)
+              .then((data) => {
+                console.log("data", data);
+                localStorage.setItem("tocken", data[0].tocken);
+                push('/');
+              })
+              .catch((err) => console.log(err));
           }}
         >
           {({ errors, touched }) => (
