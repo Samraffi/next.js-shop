@@ -3,6 +3,7 @@ import getUsers from "./getUsers";
 
 export default async function checkUsers(data) {
   const users = await getUsers();
+  console.log("check");
   users.map((user) => {
     if (user.email === data.email && user.password === data.password) {
       localStorage.setItem("userId", JSON.stringify(user.id));
@@ -10,5 +11,5 @@ export default async function checkUsers(data) {
       return history.back();
     }
   });
-    return new Error("there is no such a user, try again");
+  alert("there is no such a user, try again");
 }

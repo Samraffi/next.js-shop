@@ -10,7 +10,7 @@ export default async function signUp(data) {
       }
     });
     if(userDetails) {
-        throw new Error("Email already in use")
+        alert("Email already in use")
     } else {
         return await signUpUser(data)
     }
