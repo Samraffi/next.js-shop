@@ -52,11 +52,24 @@ export default function AlertDialogSlide({ product }) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle
+          sx={{
+            textAlign: "center",
+            fontSize: "20px",
+          }}
+        >
+          {"Are you sure?"}
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
+          <DialogContentText
+            id="alert-dialog-slide-description"
+            sx={{
+              textAlign: "center",
+              fontSize: "15px",
+            }}
+          >
+            By pressing AGREE you will make a purchase. And if you want to
+            cancel, press DISAGREE.
           </DialogContentText>
         </DialogContent>
         <DialogActions

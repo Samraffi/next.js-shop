@@ -134,9 +134,7 @@ const ContactUsForm = () => {
           onClose={handleSuccessModalClose}
           closeAfterTransition
           BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
+         
         >
           <Fade in={isSuccessModalOpen}>
             <Box

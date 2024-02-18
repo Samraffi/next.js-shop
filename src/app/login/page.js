@@ -33,7 +33,7 @@ const Login = () => {
             <Form className={`${styles.signForm}`}>
               <div className={`${styles.container}`}>
                 <label htmlFor="email">
-                  <b>Username</b>
+                  <b>Email Address</b>
                 </label>
                 <br />
                 <Field
@@ -82,6 +82,6 @@ const Login = () => {
       </motion.div>
     </>
   );
-}
+};
 
 export default Login;

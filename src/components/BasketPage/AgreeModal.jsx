@@ -74,7 +74,11 @@ export default function AgreeModal({ handelCloseAgree, product }) {
         </DialogContent>
         <DialogActions>
           <Link href="/" style={{ textDecoration: "none", color: "white" }}>
-            <Button autoFocus variant="contained" onClick={() => buyItems(product)}>
+            <Button
+              autoFocus
+              variant="contained"
+              onClick={() => buyItems(product)}
+            >
               OK
             </Button>
           </Link>

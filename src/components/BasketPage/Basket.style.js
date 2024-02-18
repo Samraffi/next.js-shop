@@ -33,11 +33,17 @@ export const StyledProductName = styled(Typography)(({ theme }) => ({
 }));
 
 export const StyledQuantityContainer = styled(Grid)(({ theme }) => ({
+  display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
+  [theme.breakpoints.down("sm")]: {
+    justifyContent: "center",
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export const StyledQuantityButtons = styled(Button)(({ theme }) => ({
+  flex: "1 0 auto",
   fontWeight: "bold",
   fontSize: "1rem",
   marginRight: theme.spacing(1),
@@ -57,12 +63,18 @@ export const StyledDeleteIcon = styled(DeleteIcon)(({ theme }) => ({
 }));
 
 export const StyledDeleteContainer = styled(Grid)(({ theme }) => ({
+  display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
   paddingRight: theme.spacing(2),
+  [theme.breakpoints.down("sm")]: {
+    justifyContent: "center",
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export const StyledDeleteButton = styled(Button)(({ theme }) => ({
+  flex: "1 0 auto",
   color: theme.palette.error.main,
   "&:hover": {
     color: theme.palette.error.light,

@@ -51,7 +51,6 @@ function Basket() {
     dispatch(selectBasketItems(updatedBasketItems));
   };
 
-
   return (
     <StyledBasket>
       <Typography variant="h4" align="center" gutterBottom>
@@ -129,10 +128,7 @@ function Basket() {
               $
             </Typography>
           </StyledBasketTotal>
-          <StyledBasketBuyButton
-            variant="contained"
-            fullWidth
-          >
+          <StyledBasketBuyButton variant="contained" fullWidth color="primary">
             <Modal />
           </StyledBasketBuyButton>
           <Box mt={2} textAlign="center">
