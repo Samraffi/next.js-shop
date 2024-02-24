@@ -1,19 +1,23 @@
-async function getOrders(usersTocken) {
-  const response = await fetch(
-    `http://localhost:3001/orders?usersTocken=${usersTocken}&_expand=products&_expand=users.tocken`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+import { database } from "@/firebase";
+import { collection, getDocs } from "firebase/firestore/lite";
+import getSnapshotData from "./getSnapshotData";
+
+const getOrders = async (userId) => {
+  const ordersData = [];
+  const ordersRef = collection(database, "orders");
+  const orderSnapshot = await getDocs(ordersRef);
+
+  orderSnapshot.forEach(async (_doc) => {
+    const {userRef, productRef, ...orderData} = _doc?.data();
+
+    if (userRef?.id === userId) {
+      ordersData.push({
+        ...orderData,
+        product: await getSnapshotData(productRef?.id),
+      });
     }
-  );
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  return response.json();
-}
+  });
+  return ordersData;
+};
 
 export default getOrders;

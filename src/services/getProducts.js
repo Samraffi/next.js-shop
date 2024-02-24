@@ -1,16 +1,11 @@
-async function getProducts() {
-    const response = await fetch("http://localhost:3001/products", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        }
-    });
+import { database } from "@/firebase";
+import { collection, getDocs } from "firebase/firestore/lite";
 
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
+const getProducts = async () => {
+  const dataRef = collection(database, "products");
+  const dataSnapshot = await getDocs(dataRef);
 
-    return response.json();
-}
+  return dataSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc?.id }));
+};
 
 export default getProducts;
