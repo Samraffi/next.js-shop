@@ -1,7 +1,7 @@
 "use client";
 
 import Contact from "@/components/ContactPage/Contact";
-import Header from "@/layouts/HeaderMUI/Header";
+import Header from "@/layouts/Header/Header";
 
 
 const ContactPage = () => {

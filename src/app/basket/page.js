@@ -1,5 +1,5 @@
 import Basket from "@/components/BasketPage/Basket";
-import Header from "@/layouts/HeaderMUI/Header";
+import Header from "@/layouts/Header/Header";
 
 const BasketPage = () => {
   return (

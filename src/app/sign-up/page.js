@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import styles from "./sign-up.module.css";
 import Link from "next/link";
-import Header from "@/layouts/HeaderMUI/Header";
+import Header from "@/layouts/Header/Header";
 import { AuthContext } from "@/context/useAuthContext";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 import createUser from "@/services/createUser";

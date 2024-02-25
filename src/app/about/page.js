@@ -1,5 +1,5 @@
 import About from "@/components/AboutPage/About";
-import Header from "@/layouts/HeaderMUI/Header";
+import Header from "@/layouts/Header/Header";
 
 const AboutPage = () => {
   return (

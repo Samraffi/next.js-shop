@@ -1,7 +1,7 @@
 "use client";
 
-import Header from "@/layouts/HeaderMUI/Header";
-import ProductList from "@/components/HomePage/HomeMUI/ProductList";
+import Header from "@/layouts/Header/Header";
+import ProductList from "@/components/HomePage/ProductList";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 import { AuthContext } from "@/context/useAuthContext";
 

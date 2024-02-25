@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import styles from "./login.module.css";
 import Link from "next/link";
-import Header from "@/layouts/HeaderMUI/Header";
+import Header from "@/layouts/Header/Header";
 import { useRouter } from "next/navigation";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 import { AuthContext } from "@/context/useAuthContext";
