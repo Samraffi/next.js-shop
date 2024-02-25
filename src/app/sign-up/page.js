@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 import styles from "./sign-up.module.css";
 import Link from "next/link";
 import Header from "@/layouts/HeaderMUI/Header";
-import signUp from "@/services/old/signUp";
+import { AuthContext } from "@/context/useAuthContext";
+import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
+import createUser from "@/services/createUser";
+import { useRouter } from "next/navigation";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -25,6 +28,8 @@ const signUpSchema = Yup.object().shape({
 });
 
 const SignUp = () => {
+  const { push } = useRouter();
+  const { userSignUp } = useAuthUserAndSignOut();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -35,13 +40,21 @@ const SignUp = () => {
       "psw-repeat": "",
     },
     validationSchema: signUpSchema,
-    // onSubmit: (values) => {
-    //   signUp(values)
-    // },
+    onSubmit: (values) => {
+      userSignUp(values)
+        .then((userCredential) => {
+          createUser(userCredential?.user?.uid, values)
+            .then((data) => {
+              push('/');
+            })
+            .catch((err) => console.log("createUser err", err));
+        })
+        .catch((err) => console.log(err));
+    },
   });
 
   return (
-    <div>
+    <AuthContext.Provider value={{ userSignUp }}>
       <Header />
       <motion.form
         initial={{ opacity: 0, y: -20 }}
@@ -172,7 +185,7 @@ const SignUp = () => {
           </Link>
         </div>
       </motion.form>
-    </div>
+    </AuthContext.Provider>
   );
 };
 

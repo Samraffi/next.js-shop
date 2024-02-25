@@ -31,7 +31,7 @@ const Login = () => {
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            userSignIn({ email: values.email, password: values.password })
+            userSignIn(values)
               .then((credential) => push('/'))
               .catch((err) => console.log(err.message));
           }}

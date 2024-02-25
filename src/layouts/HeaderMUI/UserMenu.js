@@ -12,26 +12,24 @@ import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { AVATAR, SETTINGS } from "@/constants";
 import { blueGrey } from "@mui/material/colors";
+import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 
 const UserMenu = ({
-  auth,
   anchorElUser,
   handleOpenUserMenu,
   handleCloseUserMenu,
 }) => {
-
-  const logOut = () => {
-    localStorage.removeItem("tocken");
-  }
+  const { authUser } = useAuthUserAndSignOut();
+  let uid = authUser?.uid;
 
   return (
     <Grid item>
-      {auth && (
+      {uid && (
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar sx={{ bgcolor: blueGrey[500] }}>{AVATAR[0]}</Avatar>
         </IconButton>
       )}
-      {!auth && (
+      {!uid && (
         <Tooltip title="Login to...">
           <Link href="/login">
             <IconButton>
@@ -57,7 +55,7 @@ const UserMenu = ({
       >
         {SETTINGS.map((setting) => (
           <MenuItem sx={{ m: 0 }} key={setting} onClick={handleCloseUserMenu}>
-            <LogoutIcon onClick={() => logOut()} />
+            <LogoutIcon />
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
         ))}

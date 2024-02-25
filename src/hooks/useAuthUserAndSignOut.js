@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '@/firebase';
 
 export const useAuthUserAndSignOut = () => {
@@ -25,6 +25,10 @@ export const useAuthUserAndSignOut = () => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const userSignUp = ({ email, psw }) => {
+    return createUserWithEmailAndPassword(auth, email, psw)
+  };
+
   const userSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -33,5 +37,5 @@ export const useAuthUserAndSignOut = () => {
       .catch((error) => console.log(error));
   };
 
-  return {authUser, userSignIn, userSignOut};
+  return { authUser, userSignIn, userSignUp, userSignOut };
 }

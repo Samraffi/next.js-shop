@@ -1,16 +1,18 @@
 import Button from "@mui/material/Button";
 import { SnackbarProvider, useSnackbar } from "notistack";
+import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 
-const MySnackbarButton = ({ userId, addToCart, id }) => {
+const MySnackbarButton = ({ id, addToCart }) => {
   const { enqueueSnackbar } = useSnackbar();
+  const { authUser } = useAuthUserAndSignOut();
 
   return (
     <Button
-      color={userId ? "primary" : "secondary"}
+      color={authUser?.uid ? "primary" : "secondary"}
       fullWidth
       variant="contained"
       onClick={() =>
-        userId
+        authUser?.uid
           ? addToCart(id)
           : enqueueSnackbar("Register to use the full version of the site")
       }
@@ -20,10 +22,10 @@ const MySnackbarButton = ({ userId, addToCart, id }) => {
   );
 };
 
-const ButtonOrNotistack = ({ userId, addToCart, id }) => {
+const ButtonOrNotistack = ({ id, addToCart }) => {
   return (
     <SnackbarProvider maxSnack={5}>
-      <MySnackbarButton id={id} userId={userId} addToCart={addToCart} />
+      <MySnackbarButton id={id} addToCart={addToCart} />
     </SnackbarProvider>
   );
 };
