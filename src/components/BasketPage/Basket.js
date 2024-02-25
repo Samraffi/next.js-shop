@@ -9,49 +9,15 @@ import {
   StyledQuantityContainer,
   StyledProductName,
   StyledQuantityButtons,
-  StyledDeleteIcon,
   StyledDeleteContainer,
   StyledDeleteButton,
 } from "./Basket.style";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useSelector, useDispatch } from "react-redux";
-import useBasketItems from "@/hooks/useBasketItems";
-import getUpdatedBasketItems from "@/helpers/getUpdatedBasketItems";
-import { selectBasketItems } from "@/store/basketItems/selectReducer";
-import deleteBasketItem from "@/helpers/deleteBasketItem";
-import minusUptadeBasketItem from "@/helpers/minusUptadeBasketItem";
 
 import Modal from "./Modal";
 
 function Basket() {
-  const selectBasketItemsAll = useSelector(
-    (state) => state.selectBasketItems.selectBasketItems
-  );
-  const dispatch = useDispatch();
-  const { selectBasketElems } = useBasketItems();
-
-  const onClickAdd = (product) => {
-    const updatedBasketItems = getUpdatedBasketItems(
-      selectBasketElems,
-      product
-    );
-    dispatch(selectBasketItems(updatedBasketItems));
-  };
-
-  const deleteItem = (product) => {
-    const updatedBasketItems = deleteBasketItem(selectBasketElems, product);
-    dispatch(selectBasketItems(updatedBasketItems));
-  };
-
-  const minusItem = (product) => {
-    const updatedBasketItems = minusUptadeBasketItem(
-      selectBasketElems,
-      product
-    );
-    dispatch(selectBasketItems(updatedBasketItems));
-  };
-
-
+  const selectBasketItemsAll = [];
   return (
     <StyledBasket>
       <Typography variant="h4" align="center" gutterBottom>
@@ -74,7 +40,7 @@ function Basket() {
                 <Typography>${item.price}</Typography>
               </Grid>
               <StyledQuantityContainer item xs={4} md={5} container>
-                <StyledQuantityButtons
+                {/* <StyledQuantityButtons
                   variant="outlined"
                   color="primary"
                   onClick={() => {
@@ -82,7 +48,7 @@ function Basket() {
                   }}
                 >
                   -
-                </StyledQuantityButtons>
+                </StyledQuantityButtons> */}
                 <Typography
                   variant="body1"
                   fontWeight="bold"
@@ -91,7 +57,7 @@ function Basket() {
                 >
                   {item.quantity}
                 </Typography>
-                <StyledQuantityButtons
+                {/* <StyledQuantityButtons
                   variant="outlined"
                   color="primary"
                   onClick={() => {
@@ -99,15 +65,15 @@ function Basket() {
                   }}
                 >
                   +
-                </StyledQuantityButtons>
+                </StyledQuantityButtons> */}
                 <StyledDeleteContainer item xs={3} container>
-                  <StyledDeleteButton
+                  {/* <StyledDeleteButton
                     onClick={() => {
                       deleteItem(item);
                     }}
                   >
                     <DeleteIcon />
-                  </StyledDeleteButton>
+                  </StyledDeleteButton> */}
                 </StyledDeleteContainer>
               </StyledQuantityContainer>
             </StyledBasketProductItem>
@@ -133,7 +99,7 @@ function Basket() {
             variant="contained"
             fullWidth
           >
-            <Modal />
+            {/* <Modal /> */}
           </StyledBasketBuyButton>
           <Box mt={2} textAlign="center">
             <Typography>

@@ -5,14 +5,10 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { selectBasketItems } from "@/store/basketItems/selectReducer";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
-import selectBasketItemsToDb from "@/services/old/selectBasketItems";
 
 export default function AgreeModal({ handelCloseAgree, product }) {
   const [open, setOpen] = React.useState(false);
-  const dispatch = useDispatch();
 
   const handleClickOpen = () => {
     handelCloseAgree();
@@ -23,13 +19,6 @@ export default function AgreeModal({ handelCloseAgree, product }) {
     setOpen(false);
   };
   const buyItems = (product) => {
-    // selectBasketItemsToDb({
-    //   buy: false,
-    //   productsId: product.id,
-    //   quantity: product && product.quantity ? product.quantity: 1,
-    //   usersTocken: uuidv4()
-    // });
-    dispatch(selectBasketItems([]));
     handleClose();
   };
 
