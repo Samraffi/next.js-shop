@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { selectBasketItems } from "@/store/basketItems/selectReducer";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import selectBasketItemsToDb from "@/services/selectBasketItems";
+import selectBasketItemsToDb from "@/services/old/selectBasketItems";
 
 export default function AgreeModal({ handelCloseAgree, product }) {
   const [open, setOpen] = React.useState(false);

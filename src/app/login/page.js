@@ -6,8 +6,9 @@ import { motion } from "framer-motion";
 import styles from "./login.module.css";
 import Link from "next/link";
 import Header from "@/layouts/HeaderMUI/Header";
-import checkUsers from "@/services/checkLogin";
 import { useRouter } from "next/navigation";
+import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
+import { AuthContext } from "@/context/useAuthContext";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -16,9 +17,10 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   const { push } = useRouter();
+  const { authUser, userSignIn } = useAuthUserAndSignOut();
 
   return (
-    <>
+    <AuthContext.Provider value={{ authUser, userSignIn }}>
       <Header />
       <motion.div
         initial={{ opacity: 0 }}
@@ -29,13 +31,9 @@ const Login = () => {
           initialValues={{ email: "", password: "" }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
-            checkUsers(values.email, values.password)
-              .then((data) => {
-                console.log("data", data);
-                localStorage.setItem("tocken", data[0].tocken);
-                push('/');
-              })
-              .catch((err) => console.log(err));
+            userSignIn({ email: values.email, password: values.password })
+              .then((credential) => push('/'))
+              .catch((err) => console.log(err.message));
           }}
         >
           {({ errors, touched }) => (
@@ -89,7 +87,7 @@ const Login = () => {
           )}
         </Formik>
       </motion.div>
-    </>
+    </AuthContext.Provider>
   );
 }
 

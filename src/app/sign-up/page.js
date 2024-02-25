@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import styles from "./sign-up.module.css";
 import Link from "next/link";
 import Header from "@/layouts/HeaderMUI/Header";
-import signUp from "@/services/signUp";
+import signUp from "@/services/old/signUp";
 
 const signUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -35,9 +35,9 @@ const SignUp = () => {
       "psw-repeat": "",
     },
     validationSchema: signUpSchema,
-    onSubmit: (values) => {
-      signUp(values)
-    },
+    // onSubmit: (values) => {
+    //   signUp(values)
+    // },
   });
 
   return (

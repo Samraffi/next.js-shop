@@ -21,7 +21,7 @@ const ProductList = () => {
 
   useEffect(() => {
     getProductsWithBasketStatus(userId)
-      .then((data) => null[0] && setProducts(data))
+      .then((data) => setProducts(data))
       .catch((err) => {
         handleOpenSnackbar();
         console.log(err);
