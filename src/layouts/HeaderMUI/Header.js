@@ -12,17 +12,12 @@ import DesktopNavigationButtons from "./DesktopNavigationButtons";
 import UserMenu from "./UserMenu";
 import "./Header.css";
 import HideOnScroll from "./HideOnScroll";
+import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 
 function Header() {
-  const [auth, setAuth] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-
-  useEffect(() => {
-    if(localStorage.getItem("tocken") !== 'undefined') {
-      setAuth(!!(localStorage.getItem("tocken")))
-    }
-  }, [])
+  const { userSignOut } = useAuthUserAndSignOut();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,7 +32,7 @@ function Header() {
   };
 
   const handleCloseUserMenu = () => {
-    setAuth(false);
+    userSignOut();
     setAnchorElUser(null);
   };
 
@@ -85,7 +80,6 @@ function Header() {
               <DesktopNavigationButtons handleCloseNavMenu={handleCloseNavMenu} />
 
               <UserMenu
-                auth={auth}
                 anchorElUser={anchorElUser}
                 handleOpenUserMenu={handleOpenUserMenu}
                 handleCloseUserMenu={handleCloseUserMenu}

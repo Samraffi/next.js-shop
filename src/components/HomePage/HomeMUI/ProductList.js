@@ -11,37 +11,38 @@ import createOrder from "@/services/createOrder";
 import Product from "./Product";
 import ErrorSnackbar from "./ErrorSnackbar";
 
-const ProductList = () => {
+const ProductList = ({ uid }) => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [products, setProducts] = useState([]);
-  const userId = window.localStorage.getItem("userId");
   const theme = createTheme();
   const breakPoint = useBreakPoint(theme);
   const spacingValue = 12 / getColumnsCount(breakPoint);
 
   useEffect(() => {
-    getProductsWithBasketStatus(userId)
+    getProductsWithBasketStatus(uid)
       .then((data) => setProducts(data))
       .catch((err) => {
         handleOpenSnackbar();
         console.log(err);
       });
-  }, [userId]);
+  }, [uid]);
 
   const addToCart = (productId) => {
-    createOrder(productId, userId).then(() =>
-      setProducts(
-        products.map((product) => {
-          if (product.id === productId) {
-            product.inBasket = true;
-          }
-          return product;
-        })
-      ).catch((err) => {
+    createOrder(productId, uid)
+      .then(() => (
+        setProducts(
+          products.map((product) => {
+            if (product.id === productId) {
+              product.inBasket = true;
+            }
+            return product;
+          })
+        )
+      ))
+      .catch((err) => {
         handleOpenSnackbar();
         console.log(err);
-      })
-    );
+      });
   };
 
   const handleOpenSnackbar = () => {
@@ -51,6 +52,7 @@ const ProductList = () => {
     setOpenSnackbar(false);
   };
 
+  console.log("products", products);
   return (
     <Box
       sx={{
@@ -74,7 +76,6 @@ const ProductList = () => {
             inBasket={inBasket}
             addToCart={addToCart}
             spacingValue={spacingValue}
-            userId={userId}
             key={id}
           />
         ))}

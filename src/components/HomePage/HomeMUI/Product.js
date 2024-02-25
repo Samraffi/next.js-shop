@@ -16,7 +16,6 @@ const Product = ({
   inBasket,
   addToCart,
   spacingValue,
-  userId,
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -46,7 +45,6 @@ const Product = ({
               ) : (
                 <ButtonOrNotistack
                   id={id}
-                  userId={userId}
                   addToCart={addToCart}
                 />
               )}
