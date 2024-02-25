@@ -18,9 +18,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Modal from "./Modal";
 import getOrderedProducts from "@/services/getOrderedProducts";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
+import updateCountOrderedProduct from "@/services/updateCountOrderedProduct";
 
 function Basket() {
   const [openModal, setOpenModal] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [orderedProducts, setOrderedProducts] = useState([]);
   const { authUser } = useAuthUserAndSignOut();
   let uid = authUser?.uid;
@@ -41,6 +43,27 @@ function Basket() {
   };
   const handelCloseAgreeModal = () => {
     setOpenModal(false);
+  };
+
+  const changeCountOrderedProduct = (id, count) => {
+    setDisabled(true);
+    updateCountOrderedProduct(id, count)
+      .then((data) => {
+        let products = [
+          ...orderedProducts.map((obj) => {
+            if (obj.id === id) {
+              return { ...obj, count };
+            };
+
+            return obj;
+          })
+        ];
+
+
+        setDisabled(false);
+        setOrderedProducts(products);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -71,15 +94,16 @@ function Basket() {
                     <Typography>${price}</Typography>
                   </Grid>
                   <StyledQuantityContainer item xs={4} md={5} container>
-                    {/* <StyledQuantityButtons
+                    <StyledQuantityButtons
                       variant="outlined"
                       color="primary"
+                      disabled={disabled || count === 1}
                       onClick={() => {
-                        minusItem(item);
+                        (disabled || count === 1) ? false : changeCountOrderedProduct(id, --count);
                       }}
                     >
                       -
-                    </StyledQuantityButtons> */}
+                    </StyledQuantityButtons>
                     <Typography
                       variant="body1"
                       fontWeight="bold"
@@ -88,24 +112,24 @@ function Basket() {
                     >
                       {count}
                     </Typography>
-                    {/* <StyledQuantityButtons
+                    <StyledQuantityButtons
                       variant="outlined"
                       color="primary"
                       onClick={() => {
-                        onClickAdd(item);
+                        disabled ? false : changeCountOrderedProduct(id, ++count);
                       }}
                     >
                       +
-                    </StyledQuantityButtons> */}
-                    <StyledDeleteContainer item xs={3} container>
-                      {/* <StyledDeleteButton
+                    </StyledQuantityButtons>
+                    {/* <StyledDeleteContainer item xs={3} container>
+                      <StyledDeleteButton
                         onClick={() => {
                           deleteItem(item);
                         }}
                       >
                         <DeleteIcon />
-                      </StyledDeleteButton> */}
-                    </StyledDeleteContainer>
+                      </StyledDeleteButton>
+                    </StyledDeleteContainer> */}
                   </StyledQuantityContainer>
                 </StyledBasketProductItem>
               )
