@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
 
