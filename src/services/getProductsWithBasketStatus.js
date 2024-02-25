@@ -7,9 +7,9 @@ const getProductsWithBasketStatus = async (uid) => {
   let dataSnapshot = await getProducts();
 
   orderSnapshot.forEach(async (doc) => {
-    const {userUID, productUID} = doc?.data();
+    const {buy, userUID, productUID} = doc?.data();
 
-    if (userUID === uid) {
+    if (!buy && userUID === uid) {
       orders.push({ productUID });
     }
   });
@@ -17,7 +17,7 @@ const getProductsWithBasketStatus = async (uid) => {
   return dataSnapshot.docs.map((doc) => ({
     ...doc.data(),
     id: doc?.id,
-    inBasket: orders.some(({ productUID }) => productUID === doc?.id) ? true : false,
+    inBasket: orders.some(({ buy, productUID }) => productUID === doc?.id) ? true : false,
   }));
 };
 
