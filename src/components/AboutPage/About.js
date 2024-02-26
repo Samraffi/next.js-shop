@@ -42,7 +42,7 @@ const AboutUs = () => {
         <Typography variant="body1" paragraph className={styles.text}>
           We are passionate about providing high-quality products to our
           customers. Our online shop is dedicated to offering a wide range of
-          products that cater to your needs, whether it's the latest fashion
+          products that cater to your needs, whether it&#39;s the latest fashion
           trends, cutting-edge electronics, or essential home goods.
         </Typography>
 
