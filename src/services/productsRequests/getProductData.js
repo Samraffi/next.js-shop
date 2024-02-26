@@ -1,7 +1,7 @@
 import { database } from "@/firebase";
 import { doc, getDoc } from "firebase/firestore/lite";
 
-const getSnapshotData = async (refId) => {
+const getProductData = async (refId) => {
   const snapshot = await getDoc(doc(database, "products", refId));
 
   if (snapshot.exists()) {
@@ -11,4 +11,4 @@ const getSnapshotData = async (refId) => {
   return null;
 };
 
-export default getSnapshotData;
+export default getProductData;

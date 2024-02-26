@@ -37,5 +37,10 @@ export const useAuthUserAndSignOut = () => {
       .catch((error) => console.log(error));
   };
 
-  return { authUser, userSignIn, userSignUp, userSignOut };
+  return {
+    authUser: authUser ? authUser : { uid: null },
+    userSignIn,
+    userSignUp,
+    userSignOut
+  };
 }

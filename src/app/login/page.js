@@ -17,10 +17,10 @@ const LoginSchema = Yup.object().shape({
 
 const Login = () => {
   const { push } = useRouter();
-  const { authUser, userSignIn } = useAuthUserAndSignOut();
+  const { userSignIn } = useAuthUserAndSignOut();
 
   return (
-    <AuthContext.Provider value={{ authUser, userSignIn }}>
+    <AuthContext.Provider value={{ userSignIn }}>
       <Header />
       <motion.div
         initial={{ opacity: 0 }}
@@ -56,7 +56,7 @@ const Login = () => {
                 <br />
                 <label htmlFor="password">
                   <b>Password</b>
-                </label>{" "}
+                </label>&nbsp;
                 <br />
                 <Field
                   className={`${styles.pswInput}`}

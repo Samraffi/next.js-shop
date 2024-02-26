@@ -6,11 +6,10 @@ import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 import { AuthContext } from "@/context/useAuthContext";
 
 export default function HomePage() {
-  const { authUser, userSignIn, userSignOut } = useAuthUserAndSignOut();
-  let uid = authUser?.uid;
+  const { authUser: { uid }, userSignIn, userSignOut } = useAuthUserAndSignOut();
 
   return (
-    <AuthContext.Provider value={{ authUser, userSignIn, userSignOut }}>
+    <AuthContext.Provider value={{ uid, userSignIn, userSignOut }}>
       <Header />
       <ProductList uid={uid} />
     </AuthContext.Provider>

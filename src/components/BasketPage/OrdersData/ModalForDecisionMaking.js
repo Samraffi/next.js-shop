@@ -6,13 +6,21 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import AgreeModal from "./AgreeModal";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Modal = ({ open, handleClose, handelCloseAgree }) => {
+const ModalForDecisionMaking = ({ openModalForDecision, setOpenModalForDecision, setOpenAgreeModal }) => {
+  const handleClose = () => {
+    setOpenModalForDecision(false);
+  };
+
+  const handleOpen = () => {
+    handleClose();
+    setOpenAgreeModal(true);
+  };
+
   return (
     <Dialog
       sx={{
@@ -22,10 +30,10 @@ const Modal = ({ open, handleClose, handelCloseAgree }) => {
           backgroundColor: "#f5f5f5",
         },
       }}
-      open={open}
+      open={openModalForDecision}
+      onClose={handleClose}
       TransitionComponent={Transition}
       keepMounted
-      onClose={handleClose}
       aria-describedby="alert-dialog-slide-description"
     >
       <DialogTitle>{"Use Google's location service?"}</DialogTitle>
@@ -55,10 +63,12 @@ const Modal = ({ open, handleClose, handelCloseAgree }) => {
         >
           Disagree
         </Button>
-        <AgreeModal handelCloseAgree={handelCloseAgree} />
+        <Button variant="contained" onClick={handleOpen}>
+          Agree
+        </Button>
       </DialogActions>
     </Dialog>
   );
 }
 
-export default Modal;
+export default ModalForDecisionMaking;

@@ -8,7 +8,7 @@ import Link from "next/link";
 import Header from "@/layouts/Header/Header";
 import { AuthContext } from "@/context/useAuthContext";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
-import createUser from "@/services/createUser";
+import createUser from "@/services/usersRequests/createUser";
 import { useRouter } from "next/navigation";
 
 const signUpSchema = Yup.object().shape({

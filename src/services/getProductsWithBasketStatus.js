@@ -1,5 +1,5 @@
-import getProducts from "./getProducts";
-import getOrders from "./getOrders";
+import getProducts from "./productsRequests/getProducts";
+import getOrders from "./ordersRequests/getOrders";
 
 const getProductsWithBasketStatus = async (uid) => {
   let orders = [];

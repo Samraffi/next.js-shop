@@ -84,11 +84,11 @@ const AboutUs = () => {
           {companyInfo.name}
         </Typography>
         <Typography variant="body1" paragraph>
-          <span className={styles.title}>Telephone:</span>{" "}
+          <span className={styles.title}>Telephone:</span>&nbsp;
           {companyInfo.telephone}
         </Typography>
         <Typography variant="body1" paragraph>
-          <span style={{ color: "blue", fontWeight: "bold" }}>Address:</span>{" "}
+          <span style={{ color: "blue", fontWeight: "bold" }}>Address:</span>&nbsp;
           {companyInfo.address}
         </Typography>
 

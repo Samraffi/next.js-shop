@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import useBreakPoint from "@/hooks/useBreakPoint";
 import getColumnsCount from "@/helpers/getColumnsCount";
 import getProductsWithBasketStatus from "@/services/getProductsWithBasketStatus";
-import createOrder from "@/services/createOrder";
+import createOrder from "@/services/ordersRequests/createOrder";
 import Product from "./Product";
 import ErrorSnackbar from "./ErrorSnackbar";
 
@@ -52,7 +52,6 @@ const ProductList = ({ uid }) => {
     setOpenSnackbar(false);
   };
 
-  console.log("products", products);
   return (
     <Box
       sx={{

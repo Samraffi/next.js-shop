@@ -4,15 +4,15 @@ import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 
 const MySnackbarButton = ({ id, addToCart }) => {
   const { enqueueSnackbar } = useSnackbar();
-  const { authUser } = useAuthUserAndSignOut();
+  const { authUser: { uid } } = useAuthUserAndSignOut();
 
   return (
     <Button
-      color={authUser?.uid ? "primary" : "secondary"}
+      color={uid ? "primary" : "secondary"}
       fullWidth
       variant="contained"
       onClick={() =>
-        authUser?.uid
+        uid
           ? addToCart(id)
           : enqueueSnackbar("Register to use the full version of the site")
       }

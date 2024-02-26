@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { Grid } from "@mui/material";
-import updateCountOrderedProduct from "@/services/updateCountOrderedProduct";
-import removeOrderedProduct from "@/services/removeOrderedProduct";
+import updateCountOrderedProduct from "@/services/ordersRequests/updateCountOrderedProduct";
+import removeOrderedProduct from "@/services/ordersRequests/removeOrderedProduct";
 import DeleteModal from "./DeleteModal";
 import Basket from "./Basket";
 
-function Baskets({ orderedProducts, setOrderedProducts, }) {
+function BasketsList({ orderedProducts, setOrderedProducts, }) {
   const [openModal, setOpenModal] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [idForDeleteOrderInBasket, setIdForDeleteOrderInBasket] = useState("");
@@ -59,22 +59,19 @@ function Baskets({ orderedProducts, setOrderedProducts, }) {
   return (
     <>
       <Grid item xs={12} md={7}>
-        {orderedProducts.map(({ id, buy, count, product: { images, title, price } }) => {
-          return !buy && (
-            <Basket
-              disabled={disabled}
-              changeCountOrderedProduct={changeCountOrderedProduct}
-              warnAboutDeletion={warnAboutDeletion}
-              id={id}
-              count={count}
-              images={images}
-              title={title}
-              price={price}
-              key={id}
-            />
-          )
-        })
-        }
+        {orderedProducts.map(({ id, count, product: { images, title, price } }) => (
+          <Basket
+            disabled={disabled}
+            changeCountOrderedProduct={changeCountOrderedProduct}
+            warnAboutDeletion={warnAboutDeletion}
+            id={id}
+            count={count}
+            images={images}
+            title={title}
+            price={price}
+            key={id}
+          />
+        ))}
       </Grid>
       <DeleteModal
         open={openModal}
@@ -85,4 +82,4 @@ function Baskets({ orderedProducts, setOrderedProducts, }) {
   );
 }
 
-export default Baskets;
+export default BasketsList;

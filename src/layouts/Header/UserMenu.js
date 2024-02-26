@@ -19,8 +19,7 @@ const UserMenu = ({
   handleOpenUserMenu,
   handleCloseUserMenu,
 }) => {
-  const { authUser } = useAuthUserAndSignOut();
-  let uid = authUser?.uid;
+  const { authUser: { uid } } = useAuthUserAndSignOut();
 
   return (
     <Grid item>
