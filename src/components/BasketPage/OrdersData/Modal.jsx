@@ -12,7 +12,7 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Modal = ({ product, open, handleClose, handelCloseAgree }) => {
+const Modal = ({ open, handleClose, handelCloseAgree }) => {
   return (
     <Dialog
       sx={{
@@ -55,7 +55,7 @@ const Modal = ({ product, open, handleClose, handelCloseAgree }) => {
         >
           Disagree
         </Button>
-        <AgreeModal product={product} handelCloseAgree={handelCloseAgree} />
+        <AgreeModal handelCloseAgree={handelCloseAgree} />
       </DialogActions>
     </Dialog>
   );

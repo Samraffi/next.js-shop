@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -7,8 +7,8 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Link from "next/link";
 
-export default function AgreeModal({ handelCloseAgree, product }) {
-  const [open, setOpen] = React.useState(false);
+export default function AgreeModal({ handelCloseAgree }) {
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     handelCloseAgree();
@@ -18,12 +18,9 @@ export default function AgreeModal({ handelCloseAgree, product }) {
   const handleClose = () => {
     setOpen(false);
   };
-  const buyItems = (product) => {
-    handleClose();
-  };
 
   return (
-    <React.Fragment>
+    <>
       <Button variant="contained" onClick={handleClickOpen}>
         Agree
       </Button>
@@ -44,7 +41,7 @@ export default function AgreeModal({ handelCloseAgree, product }) {
           },
         }}
         open={open}
-        // onClose={handleClose}
+        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -63,12 +60,12 @@ export default function AgreeModal({ handelCloseAgree, product }) {
         </DialogContent>
         <DialogActions>
           <Link href="/" style={{ textDecoration: "none", color: "white" }}>
-            <Button autoFocus variant="contained" onClick={() => buyItems(product)}>
+            <Button autoFocus variant="contained" onClick={() => 5}>
               OK
             </Button>
           </Link>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </>
   );
 }

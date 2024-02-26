@@ -14,7 +14,7 @@ export const StyledBasketProductItem = styled(Grid)(({ theme }) => ({
   marginBottom: theme.spacing(3),
   borderBottom: `1px solid ${theme.palette.divider}`,
   paddingBottom: theme.spacing(2),
-  alignItems: "center",
+  alignItems: "top",
 }));
 
 export const StyledBasketTotal = styled(Box)(({ theme }) => ({
@@ -38,6 +38,7 @@ export const StyledQuantityContainer = styled(Grid)(({ theme }) => ({
 }));
 
 export const StyledQuantityButtons = styled(Button)(({ theme }) => ({
+  minWidth: "auto",
   fontWeight: "bold",
   fontSize: "1rem",
   marginRight: theme.spacing(1),
@@ -46,6 +47,16 @@ export const StyledQuantityButtons = styled(Button)(({ theme }) => ({
   "&:hover": {
     backgroundColor: theme.palette.grey[200],
   },
+}));
+
+export const StyledAgryButtons = styled(Button)(({ theme }) => ({
+  minWidth: "auto",
+  fontWeight: "bold",
+  fontSize: "1rem",
+  marginRight: theme.spacing(1),
+  borderWidth: 1,
+  borderStyle: 'solid',
+  borderColor: theme.palette.primary.main,
 }));
 
 export const StyledDeleteIcon = styled(DeleteIcon)(({ theme }) => ({
@@ -57,15 +68,21 @@ export const StyledDeleteIcon = styled(DeleteIcon)(({ theme }) => ({
 }));
 
 export const StyledDeleteContainer = styled(Grid)(({ theme }) => ({
-  alignItems: "center",
+  alignItems: "top",
   justifyContent: "flex-end",
   paddingRight: theme.spacing(2),
 }));
 
 export const StyledDeleteButton = styled(Button)(({ theme }) => ({
+  minWidth: "auto",
+  borderWidth: 1,
+  borderStyle: 'solid',
+  borderColor: "#d32f2f40",
   color: theme.palette.error.main,
+  transitionDelay: "0.5s",
   "&:hover": {
-    color: theme.palette.error.light,
+    color: theme.palette.error.main,
+    backgroundColor: "#d32f2f40",
   },
 }));
 
