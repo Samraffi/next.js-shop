@@ -21,7 +21,7 @@ const Login = () => {
   const { userSignIn } = useAuthUserAndSignOut();
 
   return (
-    <AuthContext.Provider value={{ userSignIn }}>
+    <>
       <Header />
       <motion.div
         initial={{ opacity: 0 }}
@@ -88,7 +88,7 @@ const Login = () => {
           )}
         </Formik>
       </motion.div>
-    </AuthContext.Provider>
+    </>
   );
 }
 

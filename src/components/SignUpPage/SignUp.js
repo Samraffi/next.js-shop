@@ -55,7 +55,7 @@ const SignUp = () => {
   });
 
   return (
-    <AuthContext.Provider value={{ userSignUp }}>
+    <>
       <Header />
       <motion.form
         initial={{ opacity: 0, y: -20 }}
@@ -186,7 +186,7 @@ const SignUp = () => {
           </Link>
         </div>
       </motion.form>
-    </AuthContext.Provider>
+    </>
   );
 };
 

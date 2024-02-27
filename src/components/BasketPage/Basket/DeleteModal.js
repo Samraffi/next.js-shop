@@ -21,8 +21,6 @@ const DeleteModal = ({ open, cancelDeletion, removeOrder }) => {
       }}
       open={open}
       onClose={() => cancelDeletion()}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
     >
       <DialogTitle
         id="alert-dialog-title"

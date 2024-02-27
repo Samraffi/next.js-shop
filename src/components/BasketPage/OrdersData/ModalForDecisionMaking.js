@@ -34,7 +34,6 @@ const ModalForDecisionMaking = ({ openModalForDecision, setOpenModalForDecision,
       onClose={handleClose}
       TransitionComponent={Transition}
       keepMounted
-      aria-describedby="alert-dialog-slide-description"
     >
       <DialogTitle>{"Use Google's location service?"}</DialogTitle>
       <DialogContent>

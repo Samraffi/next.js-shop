@@ -5,13 +5,16 @@ import { createTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import useBreakPoint from "@/hooks/useBreakPoint";
+import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 import getColumnsCount from "@/helpers/getColumnsCount";
+import { AuthContext } from "@/context/useAuthContext";
 import getProductsWithBasketStatus from "@/services/getProductsWithBasketStatus";
 import createOrder from "@/services/ordersRequests/createOrder";
 import Product from "./Product";
 import ErrorSnackbar from "./ErrorSnackbar";
 
-const ProductList = ({ uid }) => {
+const ProductList = () => {
+  const { authUser: { uid } } = useAuthUserAndSignOut();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [products, setProducts] = useState([]);
   const theme = createTheme();
