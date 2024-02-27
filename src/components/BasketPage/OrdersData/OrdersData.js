@@ -1,11 +1,22 @@
 "use client";
 
-import { Box, Checkbox, Grid, Typography } from "@mui/material";
+import { useState } from "react";
+import { Grid, Typography } from "@mui/material";
+import CheckboxToAcceptTheTerms from "./CheckboxToAcceptTheTerms";
+
 import { StyledBasketTotal, StyledBasketBuyButton } from "../Basket/Basket.style";
 
 const OrdersData = ({ orderedProducts, setOpenModalForDecision }) => {
+  const [checked, setChecked] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
   const handleOpenModal = () => {
-    setOpenModalForDecision(true);
+    if (!checked) {
+      setOpenSnackbar(true);
+    }
+    else {
+      setOpenModalForDecision(true);
+    }
   };
 
   return (
@@ -23,21 +34,19 @@ const OrdersData = ({ orderedProducts, setOpenModalForDecision }) => {
         </Typography>
       </StyledBasketTotal>
       <StyledBasketBuyButton
-        sx={{
-          color: "white",
-        }}
+        sx={{ color: "white" }}
         variant="contained"
         onClick={handleOpenModal}
         fullWidth
       >
         Buy Now
       </StyledBasketBuyButton>
-      <Box mt={2} textAlign="center">
-        <Typography>
-          <Checkbox name="convention" value="checked" /> I agree with the
-          rules for using the trading platform and returning
-        </Typography>
-      </Box>
+      <CheckboxToAcceptTheTerms
+        checked={checked}
+        setChecked={setChecked}
+        openSnackbar={openSnackbar}
+        setOpenSnackbar={setOpenSnackbar}
+      />
     </Grid>
   );
 }

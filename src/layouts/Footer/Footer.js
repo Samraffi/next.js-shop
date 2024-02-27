@@ -35,7 +35,7 @@ const Footer = ({ topSpaces }) => {
       </Grid>
       <Grid item>
         <Typography sx={{ lineHeight: 1.75, fontSize: "0.9rem", color: "#1d1d1d" }} variant="h6" component="div">
-          &nbsp;Your voice team.&nbsp;
+          &nbsp;Your choise team.&nbsp;
         </Typography>
       </Grid>
       <Grid item>

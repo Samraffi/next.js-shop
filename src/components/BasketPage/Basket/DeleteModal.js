@@ -37,11 +37,6 @@ const DeleteModal = ({ open, cancelDeletion, removeOrder }) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        {/* <Link href="/" style={{ textDecoration: "none", color: "white" }}>
-          <Button autoFocus variant="contained" onClick={removeOrder}>
-            OK
-          </Button>
-        </Link> */}
         <DialogActions>
           <StyledAgryButtons
             item
