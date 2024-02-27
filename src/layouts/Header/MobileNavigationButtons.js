@@ -7,7 +7,11 @@ import Typography from "@mui/material/Typography";
 import { v4 as uuidv4 } from "uuid";
 import { PAGES } from "@/constants";
 
-const MobileNavigationButtons = ({ anchorElNav, handleCloseNavMenu }) => {
+const MobileNavigationButtons = ({ anchorElNav, setAnchorElNav }) => {
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
   return (
     <Menu
       id="menu-appbar"

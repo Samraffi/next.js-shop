@@ -23,18 +23,6 @@ function Header() {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <HideOnScroll>
       <AppBar
@@ -78,16 +66,15 @@ function Header() {
                 item
                 sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
               ></Grid>
-              <DesktopNavigationButtons handleCloseNavMenu={handleCloseNavMenu} />
+              <DesktopNavigationButtons />
 
               <UserMenu
                 anchorElUser={anchorElUser}
-                handleOpenUserMenu={handleOpenUserMenu}
-                handleCloseUserMenu={handleCloseUserMenu}
+                setAnchorElUser={setAnchorElUser}
               />
               <MobileNavigationButtons
                 anchorElNav={anchorElNav}
-                handleCloseNavMenu={handleCloseNavMenu}
+                setAnchorElNav={setAnchorElNav}
               />
             </Grid>
           </Toolbar>

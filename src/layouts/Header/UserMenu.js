@@ -14,17 +14,24 @@ import { AVATAR, SETTINGS } from "@/constants";
 import { blueGrey } from "@mui/material/colors";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 
-const UserMenu = ({
-  anchorElUser,
-  handleOpenUserMenu,
-  handleCloseUserMenu,
-}) => {
+const UserMenu = ({ anchorElUser, setAnchorElUser }) => {
   const { authUser: { uid }, userSignOut } = useAuthUserAndSignOut();
+
+  const handleOpen = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorElUser(null);
+  };
+  const handleCloseAndSignOut = () => {
+    userSignOut();
+    setAnchorElUser(null);
+  };
 
   return (
     <Grid item>
       {uid && (
-        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+        <IconButton onClick={handleOpen} sx={{ p: 0 }}>
           <Avatar sx={{ bgcolor: blueGrey[500] }}>{AVATAR[0]}</Avatar>
         </IconButton>
       )}
@@ -50,12 +57,12 @@ const UserMenu = ({
           horizontal: "right",
         }}
         open={Boolean(anchorElUser)}
-        onClose={handleCloseUserMenu}
+        onClose={handleClose}
       >
-        {SETTINGS.map((setting) => (
-          <MenuItem sx={{ m: 0 }} key={setting} onClick={() => userSignOut()}>
+        {SETTINGS.map((item) => (
+          <MenuItem sx={{ m: 0 }} key={item} onClick={handleCloseAndSignOut}>
             <LogoutIcon />
-            <Typography textAlign="center">{setting}</Typography>
+            <Typography textAlign="center">{item}</Typography>
           </MenuItem>
         ))}
       </Menu>
