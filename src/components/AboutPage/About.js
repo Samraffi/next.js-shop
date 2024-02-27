@@ -4,8 +4,7 @@ import React from "react";
 import { Container, Typography, Paper } from "@mui/material";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import styles from "./About.module.css";
-
-const GOOGLE_MAPS_API_KEY = "AIzaSyD1Pms6Wk3jZgCVaaWKYrqmJ_S8P4i0WDU";
+import { GOOGLE_MAPS_API_KEY } from "@/constants";
 
 const companyInfo = {
   name: "Owl Shop at Dubai Mall",
@@ -20,22 +19,9 @@ const mapContainerStyle = {
 };
 
 const AboutUs = () => {
-  const outerContainerStyle = {
-    backgroundColor: "#e6f7ff",
-    minHeight: "100vh",
-    minWidth: "98vw",
-  };
-
-  const paperStyle = {
-    marginTop: "64px",
-    padding: "20px",
-    marginBottom: "10px",
-    textAlign: "left",
-  };
-
   return (
     <Container className={styles.container}>
-      <Paper elevation={3} style={paperStyle} className={styles.paper}>
+      <Paper elevation={3} className={styles.paper}>
         <Typography variant="h5" gutterBottom className={styles.title}>
           Welcome to Our Online Shop!
         </Typography>
@@ -76,7 +62,7 @@ const AboutUs = () => {
           relationships with our customers.
         </Typography>
       </Paper>
-      <Paper elevation={3} style={paperStyle} className={styles.map}>
+      <Paper elevation={3} className={styles.map}>
         <Typography variant="h4" gutterBottom className={styles.title}>
           About Us
         </Typography>

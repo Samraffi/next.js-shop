@@ -3,10 +3,10 @@
     -45deg,
     #99dceb,
     #2193b0,
-    #1bbb73,
-    #91ce55,
+    #f4fbf3,
+    #f4fbf3,
     #1c7286,
-    #8bc323,
+    #f4fbf3,
     #64f7b5,
     #ade378
   );
@@ -18,7 +18,10 @@
   align-items: center;
   justify-content: center;
   font-family: "Arial", sans-serif;
+  margin-top: 80px;
+  padding-top: 20px;
 }
+
 @keyframes gradientWave {
   0% {
     background-position: 0% 50%;
@@ -40,7 +43,6 @@
   padding: 20px;
   transition: all 0.3s ease-in-out;
   animation: slideInFromLeft 2s ease-in-out;
-  cursor: pointer;
 }
 
 .paper:hover {
@@ -60,6 +62,7 @@
 }
 
 .map {
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
