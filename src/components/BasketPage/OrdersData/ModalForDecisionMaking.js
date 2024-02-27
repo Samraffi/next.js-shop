@@ -35,35 +35,29 @@ const ModalForDecisionMaking = ({ openModalForDecision, setOpenModalForDecision,
       TransitionComponent={Transition}
       keepMounted
     >
-      <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+      <DialogTitle>
+        Purchase Process and Order Confirmation
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-slide-description">
-          Let Google help apps determine location. This means sending
-          anonymous location data to Google, even when no apps are running.
+        <DialogContentText sx={{ mb: 1 }}>
+          You&#39;re almost done! Before proceeding, please make sure you&#39;ve checked all the items in your cart and are satisfied with your selection.
+        </DialogContentText>
+        <DialogContentText sx={{ mb: 1 }}>
+          If you&#39;re ready to continue, click the &#34;Complete Order&#34; button. You will then be redirected to the payment page where you can enter your payment and delivery details.
+        </DialogContentText>
+        <DialogContentText sx={{ mb: 1 }}>
+          Please remember that by confirming your order, you agree to our terms of service and privacy policy.
+        </DialogContentText>
+        <DialogContentText>
+          Thank you for shopping with us!
         </DialogContentText>
       </DialogContent>
-      <DialogActions
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "20px",
-        }}
-      >
-        <Button
-          onClick={handleClose}
-          sx={{
-            backgroundColor: "#f5f5f5",
-            color: "black",
-            "&:hover": {
-              backgroundColor: "black",
-              color: "white",
-            },
-          }}
-        >
+      <DialogActions sx={{ display: "flex" }}>
+        <Button variant="secondary" onClick={handleClose}>
           Disagree
         </Button>
         <Button variant="contained" onClick={handleOpen}>
-          Agree
+          Complete Order
         </Button>
       </DialogActions>
     </Dialog>
