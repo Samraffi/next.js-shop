@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 import useBreakPoint from "@/hooks/useBreakPoint";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 import getColumnsCount from "@/helpers/getColumnsCount";
-import { AuthContext } from "@/context/useAuthContext";
 import getProductsWithBasketStatus from "@/services/getProductsWithBasketStatus";
 import createOrder from "@/services/ordersRequests/createOrder";
 import Product from "./Product";

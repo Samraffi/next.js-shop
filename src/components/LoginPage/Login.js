@@ -7,7 +7,7 @@ import { Formik, Field, Form } from "formik";
 import { motion } from "framer-motion";
 import Header from "@/layouts/Header/Header";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
-import { AuthContext } from "@/context/useAuthContext";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import styles from "./Login.module.css";
 
