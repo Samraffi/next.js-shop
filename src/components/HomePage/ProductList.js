@@ -25,7 +25,6 @@ const ProductList = () => {
       .then((data) => setProducts(data))
       .catch((err) => {
         handleOpenSnackbar();
-        console.log(err);
       });
   }, [uid]);
 
@@ -43,7 +42,6 @@ const ProductList = () => {
       ))
       .catch((err) => {
         handleOpenSnackbar();
-        console.log(err);
       });
   };
 

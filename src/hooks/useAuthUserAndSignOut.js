@@ -30,11 +30,7 @@ export const useAuthUserAndSignOut = () => {
   };
 
   const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("sign out successful");
-      })
-      .catch((error) => console.log(error));
+    return signOut(auth);
   };
 
   return {

@@ -45,7 +45,6 @@ const ContactUsForm = () => {
 
     try {
       await emailjs.send('service_gt9btmg', 'template_0pi8v0g', templateParams, 'fn-edCused1RYyEXf');
-      console.log('Email sent successfully');
       setSuccessModalOpen(true);
       resetForm();
     } catch (error) {

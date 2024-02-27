@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Grid from "@mui/material/Grid";
 import Tooltip from "@mui/material/Tooltip";
@@ -10,11 +11,13 @@ import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { AVATAR, SETTINGS } from "@/constants";
+import SuccessSnackbar from "./SuccessSnackbar";
 import { blueGrey } from "@mui/material/colors";
+import { AVATAR, SETTINGS } from "@/constants";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
 
 const UserMenu = ({ anchorElUser, setAnchorElUser }) => {
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const { authUser: { uid }, userSignOut } = useAuthUserAndSignOut();
 
   const handleOpen = (event) => {
@@ -24,8 +27,14 @@ const UserMenu = ({ anchorElUser, setAnchorElUser }) => {
     setAnchorElUser(null);
   };
   const handleCloseAndSignOut = () => {
-    userSignOut();
-    setAnchorElUser(null);
+    userSignOut()
+      .then(() => {
+        setAnchorElUser(null);
+      })
+      .then(() => {
+        setOpenSnackbar(true);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -66,6 +75,10 @@ const UserMenu = ({ anchorElUser, setAnchorElUser }) => {
           </MenuItem>
         ))}
       </Menu>
+      <SuccessSnackbar
+        openSnackbar={openSnackbar}
+        setOpenSnackbar={setOpenSnackbar}
+      />
     </Grid>
   );
 };
