@@ -3,8 +3,9 @@
 import React from "react";
 import { Container, Typography, Paper } from "@mui/material";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import styles from "./About.module.css";
 import { GOOGLE_MAPS_API_KEY } from "@/constants";
+
+import styles from "./About.module.css";
 
 const companyInfo = {
   name: "Owl Shop at Dubai Mall",

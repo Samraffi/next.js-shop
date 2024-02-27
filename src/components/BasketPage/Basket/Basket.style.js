@@ -4,7 +4,6 @@ import { Box, Button, Container, Grid, Typography } from "@mui/material";
 
 export const StyledBasket = styled(Container)(({ theme }) => ({
   padding: theme.spacing(3),
-  marginTop: theme.spacing(10),
   backgroundColor: theme.palette.background.paper,
   boxShadow: theme.shadows[5],
   borderRadius: theme.shape.borderRadius,
