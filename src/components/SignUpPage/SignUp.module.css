@@ -31,7 +31,7 @@
   color: #343a40;
 }
 
-.txtInput {
+.input {
   width: 100%;
   padding: 10px;
   margin: 10px -10px;
@@ -41,7 +41,7 @@
   border-color: #ced4da;
   transition: border-color 0.3s ease;
 }
-.txtInput:focus {
+.input:focus {
   border-color: #495057;
 }
 .buttonContainer {

@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as Yup from "yup";
-import { Formik, Field, Form } from "formik";
+import { Formik, Form } from "formik";
 import { motion } from "framer-motion";
 import Header from "@/layouts/Header/Header";
+import EmailField from "./EmailField";
+import PasswordField from "./PasswordField";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
-import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import styles from "./Login.module.css";
 
@@ -40,33 +41,8 @@ const Login = () => {
           {({ errors, touched }) => (
             <Form className={`${styles.signForm}`}>
               <div className={`${styles.container}`}>
-                <label htmlFor="email">
-                  <b>Username</b>
-                </label>
-                <br />
-                <Field
-                  className={`${styles.txtInput}`}
-                  type="text"
-                  name="email"
-                />
-                <div className={`${styles.error}`}>
-                  {errors.email && touched.email ? (
-                    <div>{errors.email}</div>
-                  ) : null}
-                </div>
-                <br />
-                <label htmlFor="password">
-                  <b>Password</b>
-                </label>&nbsp;
-                <br />
-                <Field
-                  className={`${styles.pswInput}`}
-                  type="password"
-                  name="password"
-                />
-                {errors.password && touched.password ? (
-                  <div>{errors.password}</div>
-                ) : null}
+                <EmailField />
+                <PasswordField />
                 <motion.button
                   className={`${styles.btn}`}
                   type="submit"
@@ -74,16 +50,16 @@ const Login = () => {
                 >
                   Login
                 </motion.button>
+                <motion.button
+                  type="button"
+                  className={`${styles.change} ${styles.btn}`}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Link href="/sign-up" className={`${styles.sgn}`}>
+                    Sign Up
+                  </Link>
+                </motion.button>
               </div>
-              <motion.button
-                type="button"
-                className={`${styles.change} ${styles.btn}`}
-                whileHover={{ scale: 1.05 }}
-              >
-                <Link href="/sign-up" className={`${styles.sgn}`}>
-                  Sign Up
-                </Link>
-              </motion.button>
             </Form>
           )}
         </Formik>

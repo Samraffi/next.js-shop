@@ -7,7 +7,6 @@ import { useFormik } from "formik";
 import { motion } from "framer-motion";
 import Header from "@/layouts/Header/Header";
 import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
-import { AuthContext } from "@/context/useAuthContext";
 import createUser from "@/services/usersRequests/createUser";
 
 import styles from "./SignUp.module.css";
@@ -73,7 +72,7 @@ const SignUp = () => {
           </label>
           <input
             id="fname"
-            className={`${styles.txtInput}`}
+            className={`${styles.input}`}
             type="text"
             placeholder="First Name"
             name="fname"
@@ -91,7 +90,7 @@ const SignUp = () => {
           </label>
           <input
             id="lname"
-            className={`${styles.txtInput}`}
+            className={`${styles.input}`}
             type="text"
             placeholder="Last Name"
             name="lname"
@@ -108,7 +107,7 @@ const SignUp = () => {
           </label>
           <input
             id="email"
-            className={`${styles.txtInput}`}
+            className={`${styles.input}`}
             type="email"
             placeholder="Email"
             name="email"
@@ -126,7 +125,7 @@ const SignUp = () => {
           </label>
           <input
             id="phone"
-            className={`${styles.txtInput}`}
+            className={`${styles.input}`}
             type="text"
             placeholder="Phone Number"
             name="phone"
@@ -144,7 +143,7 @@ const SignUp = () => {
           </label>
           <input
             id="psw"
-            className={`${styles.txtInput}`}
+            className={`${styles.input}`}
             type="password"
             placeholder="Password"
             name="psw"
@@ -162,7 +161,7 @@ const SignUp = () => {
           </label>
           <input
             id="psw-repeat"
-            className={`${styles.txtInput}`}
+            className={`${styles.input}`}
             type="password"
             placeholder="Repeat Password"
             name="psw-repeat"
