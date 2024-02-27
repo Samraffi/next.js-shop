@@ -19,7 +19,7 @@ const UserMenu = ({
   handleOpenUserMenu,
   handleCloseUserMenu,
 }) => {
-  const { authUser: { uid } } = useAuthUserAndSignOut();
+  const { authUser: { uid }, userSignOut } = useAuthUserAndSignOut();
 
   return (
     <Grid item>
@@ -53,7 +53,7 @@ const UserMenu = ({
         onClose={handleCloseUserMenu}
       >
         {SETTINGS.map((setting) => (
-          <MenuItem sx={{ m: 0 }} key={setting} onClick={handleCloseUserMenu}>
+          <MenuItem sx={{ m: 0 }} key={setting} onClick={() => userSignOut()}>
             <LogoutIcon />
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>

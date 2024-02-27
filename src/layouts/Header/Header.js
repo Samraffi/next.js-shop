@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -9,15 +9,14 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import MobileNavigationButtons from "./MobileNavigationButtons";
 import DesktopNavigationButtons from "./DesktopNavigationButtons";
-import UserMenu from "./UserMenu";
-import "./Header.css";
 import HideOnScroll from "./HideOnScroll";
-import { useAuthUserAndSignOut } from "@/hooks/useAuthUserAndSignOut";
+import UserMenu from "./UserMenu";
+
+import "./Header.css";
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const { userSignOut } = useAuthUserAndSignOut();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,7 +31,6 @@ function Header() {
   };
 
   const handleCloseUserMenu = () => {
-    userSignOut();
     setAnchorElUser(null);
   };
 
@@ -40,7 +38,7 @@ function Header() {
     <HideOnScroll>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "#9a999933", boxShadow: "none" }}
+        sx={{ backgroundColor: "#f4fbf3", boxShadow: "none" }}
       >
         <Container maxWidth="xl">
           <Toolbar>
@@ -70,7 +68,7 @@ function Header() {
                   mr: 1,
                 }}
               >
-                <img className="logo" src="/image/shop4.png" alt="Logo" />
+                <img className="logo" src="/image/logo.png" alt="Logo" />
               </Grid>
 
               <Grid

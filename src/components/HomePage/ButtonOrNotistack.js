@@ -8,6 +8,16 @@ const MySnackbarButton = ({ id, addToCart }) => {
 
   return (
     <Button
+      sx={{
+        color: "#1976d2",
+        backgroundColor: "#f4fbf3",
+        fontFamily: "'__Roboto_42e952', '__Roboto_Fallback_42e952'",
+        fontWeight: 400,
+        '&:hover': {
+          backgroundColor: "#1976d2",
+          color: '#f4fbf3',
+        },
+      }}
       color={uid ? "primary" : "secondary"}
       fullWidth
       variant="contained"
