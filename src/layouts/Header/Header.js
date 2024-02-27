@@ -13,6 +13,7 @@ import HideOnScroll from "./HideOnScroll";
 import UserMenu from "./UserMenu";
 
 import "./Header.css";
+import Link from "next/link";
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -68,7 +69,9 @@ function Header() {
                   mr: 1,
                 }}
               >
-                <img className="logo" src="/image/logo.png" alt="Logo" />
+                <Link href="/">
+                  <img className="logo" src="/image/logo.png" alt="Logo" />
+                </Link>
               </Grid>
 
               <Grid

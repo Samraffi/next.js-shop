@@ -18,7 +18,7 @@ const MySnackbarButton = ({ id, addToCart }) => {
           color: '#f4fbf3',
         },
       }}
-      color={uid ? "primary" : "secondary"}
+      color="primary"
       fullWidth
       variant="contained"
       onClick={() =>
