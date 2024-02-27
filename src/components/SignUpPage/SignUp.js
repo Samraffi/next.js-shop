@@ -16,12 +16,18 @@ const signUpSchema = Yup.object().shape({
   fname: Yup.string().required("Required"),
   lname: Yup.string().required("Required"),
   phone: Yup.string()
+    .required("Required")
     .matches(
       /^(\+\d{1,3}[- ]?)?\d{9}$/,
       "Phone number must be 9 digits and may start with a country code"
-    )
-    .required("Required"),
-  psw: Yup.string().required("Required"),
+    ),
+  psw: Yup.string()
+    .required('No password provided') 
+    .matches(/[0-9]/, 'The password contains at least one number')
+    .matches(/[a-z]/, 'The password contains at least one lowercase latin letter')
+    .matches(/[A-Z]/, 'The password contains at least one uppercase latin letter;')
+    .matches(/[!@#$%^&*]/, 'The password contains at least one special character')
+    .min(6, 'Password should be at least 6 characters'),
   "psw-repeat": Yup.string()
     .oneOf([Yup.ref("psw"), null], "Passwords must match")
     .required("Required"),
