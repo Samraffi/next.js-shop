@@ -8,8 +8,20 @@ import Footer from "@/layouts/Footer/Footer";
 const ContactPage = () => {
   return (
     <>
-      <Header/>
-      <Container sx={{ marginTop: "80px", minHeight: "calc(100vh - 80px - 64px - 20px)" }}>
+      <Header />
+      <Container
+        sx={{
+          margin: {
+            xs: "0"
+          },
+          marginTop: {
+            xs: "80px"
+          },
+          maxWidth: "100vw !important",
+          padding: "0 !important",
+          minHeight: "calc(100vh - 80px - 64px - 20px)"
+        }}
+      >
         <Contact />
       </Container>
       <Footer />
