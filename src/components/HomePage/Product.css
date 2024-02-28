@@ -1,0 +1,16 @@
+.box img {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.image2 {
+  display: none;
+}
+
+.image-box:hover .image2 {
+  display: block;
+}
+
+.image-box:hover .image1 {
+  display: none;
+}

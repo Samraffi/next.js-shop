@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(270deg, #92eef4, #6a7fad);
+  animation: gradient-shift 6s ease infinite;
+}
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.signForm {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25),
+    0px 10px 10px rgba(0, 0, 0, 0.22);
+  background: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  cursor: pointer;
+  animation: form-entry 0.5s ease-out;
+}
+@keyframes form-entry {
+  0% {
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+  }
+}
+
+.signForm label {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.input {
+  width: 90%;
+  padding: 0 0.875em;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  font-size: 0.875em;
+  outline: none;
+  box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.1),
+    0px 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.input input {
+  width: 100%;
+  padding: 0.875em;
+}
+
+.btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 0.875em;
+  border: none;
+  border-radius: 5px;
+  background-color: #5b86e5;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1em;
+  text-transform: uppercase;
+  outline: none;
+  background-color: #5b86e5;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.error {
+  margin-bottom: 10px;
+  font-size: 0.8em;
+  color: #fa011a;
+  transition: color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #36d1dc;
+}
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.change {
+  margin-top: 1em;
+}
+
+.sgn {
+  color: #fcfcfc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sgn:hover {
+  color: #2e2e2e;
+}
