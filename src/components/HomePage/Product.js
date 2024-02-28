@@ -21,7 +21,7 @@ const Product = ({
     <ThemeProvider theme={theme}>
       <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
         <Item>
-        <Grid className="box image-box">
+        <Grid className="box">
           <img className="image1" src={images && images[0]} />
           <img className="image2" src={images && images[2]} />
         </Grid>
