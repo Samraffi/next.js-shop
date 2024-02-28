@@ -1,11 +1,18 @@
-import Basket from "@/components/BasketPage/Basket";
-import Header from "@/layouts/HeaderMUI/Header";
+import Header from "@/layouts/Header/Header";
+import Container from '@mui/material/Container';
+import Basket from "@/components/BasketPage/BasketPageContainer";
+import Footer from "@/layouts/Footer/Footer";
 
-export default function BasketPage () {
+const BasketPage = () => {
   return (
-  <>
-  <Header/>
-    <Basket />
+    <>
+      <Header />
+      <Container sx={{ marginTop: "80px", minHeight: "calc(100vh - 80px - 64px - 20px)" }}>
+        <Basket />
+      </Container>
+      <Footer topSpaces={true} />
     </>
   );
 }
+
+export default BasketPage;

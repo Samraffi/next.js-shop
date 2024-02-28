@@ -1,0 +1,140 @@
+.signForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 150px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.signForm:hover {
+  background-color: #e9ecef;
+}
+
+.container {
+  width: 100%;
+}
+
+.container p {
+  text-align: center;
+  font-size: 1.2em;
+  color: #6c757d;
+  transition: color 0.3s ease;
+  animation: button-pulse 2s infinite;
+}
+.container p:hover {
+  color: #343a40;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px -10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  border-color: #ced4da;
+  transition: border-color 0.3s ease;
+}
+.input:focus {
+  border-color: #495057;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn {
+  width: 45%;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  text-decoration: none;
+  text-align: center;
+  background-color: #007bff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: color-shift 2s infinite;
+  /* animation: button-pulse 2s infinite; */
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.error {
+  margin-bottom: 10px;
+  font-size: 0.8em;
+  color: #dc3545;
+  transition: color 0.3s ease;
+}
+
+.horizontalLine {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+  border-top-color: #ced4da;
+  transition: border-top-color 0.3s ease;
+}
+.horizontalLine:hover {
+  border-top-color: #495057;
+}
+
+.halfWidth {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+  .halfWidth {
+    width: 48%;
+    margin-right: 2%;
+    transition: background-color 0.3s ease;
+  }
+
+  .halfWidth:last-child {
+    margin-right: 0;
+  }
+
+  .halfWidth:hover {
+    background-color: #e9ecef;
+  }
+}
+
+@keyframes color-shift {
+  0% {
+    background-color: #007bff;
+  }
+  50% {
+    background-color: #0056b3;
+  }
+  100% {
+    background-color: #007bff;
+  }
+}
