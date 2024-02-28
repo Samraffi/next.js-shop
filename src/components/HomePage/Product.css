@@ -1,16 +1,23 @@
+.box {
+  position: relative;
+}
+
 .box img {
   width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 20px 20px 0 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.box:hover .image2 {
+  opacity: 1;
 }
 
 .image2 {
-  display: none;
-}
-
-.image-box:hover .image2 {
-  display: block;
-}
-
-.image-box:hover .image1 {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
