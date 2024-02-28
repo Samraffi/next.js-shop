@@ -13,6 +13,7 @@ const MySnackbarButton = ({ id, addToCart }) => {
         backgroundColor: "#f4fbf3",
         fontFamily: "'__Roboto_42e952', '__Roboto_Fallback_42e952'",
         fontWeight: 400,
+        transition: "all 0.4s ease-in-out",
         '&:hover': {
           backgroundColor: "#1976d2",
           color: '#f4fbf3',
